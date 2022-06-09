@@ -129,6 +129,7 @@ namespace Elite
             // 
             // Main_Elite_Frm
             // 
+            this.AcceptButton = this.BTN_Search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));

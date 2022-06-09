@@ -32,6 +32,7 @@ namespace Elite
             this.components = new System.ComponentModel.Container();
             this.BTN_Exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BTN_New_Client = new System.Windows.Forms.Button();
             this.BTN_Close = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblCurrentRunningTime = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@ namespace Elite
             this.LblHomeScreen = new System.Windows.Forms.Label();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.BTN_New_Client = new System.Windows.Forms.Button();
+            this.BTN_Admin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -67,6 +68,7 @@ namespace Elite
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel1.Controls.Add(this.BTN_Admin);
             this.panel1.Controls.Add(this.BTN_New_Client);
             this.panel1.Controls.Add(this.BTN_Close);
             this.panel1.Controls.Add(this.panel2);
@@ -77,6 +79,20 @@ namespace Elite
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(193, 762);
             this.panel1.TabIndex = 5;
+            // 
+            // BTN_New_Client
+            // 
+            this.BTN_New_Client.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_New_Client.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_New_Client.FlatAppearance.BorderSize = 0;
+            this.BTN_New_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_New_Client.Location = new System.Drawing.Point(0, 111);
+            this.BTN_New_Client.Name = "BTN_New_Client";
+            this.BTN_New_Client.Size = new System.Drawing.Size(193, 34);
+            this.BTN_New_Client.TabIndex = 8;
+            this.BTN_New_Client.Text = "New Client";
+            this.BTN_New_Client.UseVisualStyleBackColor = false;
+            this.BTN_New_Client.Click += new System.EventHandler(this.BTN_New_Client_Click);
             // 
             // BTN_Close
             // 
@@ -112,7 +128,7 @@ namespace Elite
             this.LblCurrentRunningTime.AutoSize = true;
             this.LblCurrentRunningTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCurrentRunningTime.ForeColor = System.Drawing.Color.GhostWhite;
-            this.LblCurrentRunningTime.Location = new System.Drawing.Point(60, 73);
+            this.LblCurrentRunningTime.Location = new System.Drawing.Point(12, 71);
             this.LblCurrentRunningTime.Name = "LblCurrentRunningTime";
             this.LblCurrentRunningTime.Size = new System.Drawing.Size(46, 17);
             this.LblCurrentRunningTime.TabIndex = 2;
@@ -127,7 +143,7 @@ namespace Elite
             this.LblLongDate.AutoSize = true;
             this.LblLongDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblLongDate.ForeColor = System.Drawing.Color.GhostWhite;
-            this.LblLongDate.Location = new System.Drawing.Point(3, 46);
+            this.LblLongDate.Location = new System.Drawing.Point(12, 45);
             this.LblLongDate.Name = "LblLongDate";
             this.LblLongDate.Size = new System.Drawing.Size(46, 17);
             this.LblLongDate.TabIndex = 1;
@@ -140,7 +156,7 @@ namespace Elite
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblUserName.AutoSize = true;
             this.LblUserName.ForeColor = System.Drawing.Color.GhostWhite;
-            this.LblUserName.Location = new System.Drawing.Point(59, 17);
+            this.LblUserName.Location = new System.Drawing.Point(12, 17);
             this.LblUserName.Name = "LblUserName";
             this.LblUserName.Size = new System.Drawing.Size(51, 20);
             this.LblUserName.TabIndex = 0;
@@ -188,19 +204,19 @@ namespace Elite
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // BTN_New_Client
+            // BTN_Admin
             // 
-            this.BTN_New_Client.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_New_Client.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTN_New_Client.FlatAppearance.BorderSize = 0;
-            this.BTN_New_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_New_Client.Location = new System.Drawing.Point(0, 111);
-            this.BTN_New_Client.Name = "BTN_New_Client";
-            this.BTN_New_Client.Size = new System.Drawing.Size(193, 34);
-            this.BTN_New_Client.TabIndex = 8;
-            this.BTN_New_Client.Text = "New Client";
-            this.BTN_New_Client.UseVisualStyleBackColor = false;
-            this.BTN_New_Client.Click += new System.EventHandler(this.BTN_New_Client_Click);
+            this.BTN_Admin.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_Admin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BTN_Admin.FlatAppearance.BorderSize = 0;
+            this.BTN_Admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Admin.Location = new System.Drawing.Point(0, 694);
+            this.BTN_Admin.Name = "BTN_Admin";
+            this.BTN_Admin.Size = new System.Drawing.Size(193, 34);
+            this.BTN_Admin.TabIndex = 9;
+            this.BTN_Admin.Text = "Admin";
+            this.BTN_Admin.UseVisualStyleBackColor = false;
+            this.BTN_Admin.Visible = false;
             // 
             // Elite_Dashboard
             // 
@@ -242,5 +258,6 @@ namespace Elite
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button BTN_Close;
         private System.Windows.Forms.Button BTN_New_Client;
+        private System.Windows.Forms.Button BTN_Admin;
     }
 }

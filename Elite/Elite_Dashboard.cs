@@ -12,11 +12,17 @@ namespace Elite
 {
     public partial class Elite_Dashboard : Form
     {
+        public static bool isAdmin;
         public Elite_Dashboard()
         {
             InitializeComponent();
             // BTN_Close.Click += (s, e) => Application.Exit();
             LblUserName.Text = Environment.UserName;
+            isAdmin = Data.DataHandler.IsUserAdmin(Environment.UserName);
+            if(isAdmin == true)
+            {
+                BTN_Admin.Visible = true;
+            }
             LblHomeScreen.Text = "Search for a Client by last name or Case manager";
             Main_Elite_Frm main_vrb = new Main_Elite_Frm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             main_vrb.FormBorderStyle = FormBorderStyle.None;

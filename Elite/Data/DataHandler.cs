@@ -52,6 +52,38 @@ namespace Elite.Data
 
         #region Validation Methods
 
+        public static bool IsUserAdmin(string userName)
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd = new SqlCommand("sp_CheckAdminStatus", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@spUSERNAME", userName));
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.HasRows)
+            {
+                rdr.Read();
+                if (rdr[0] == DBNull.Value)
+                {
+                    return false;
+                }
+                if (Convert.ToInt32(rdr[2]) == 1)
+                {
+                    return true;
+                }
+            }
+            rdr.Close();
+            c.Close();
+            return false;
+        }
+
         public static bool ClientExists(string fName, string lName, string lastFour)
         {
             if (c.State.ToString() == "Open")
