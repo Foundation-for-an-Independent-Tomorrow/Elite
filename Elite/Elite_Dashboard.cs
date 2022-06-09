@@ -28,6 +28,7 @@ namespace Elite
             main_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(main_vrb);
             main_vrb.Show();
+            BTN_Home.Visible = false;
         }
 
         #region Movable Window
@@ -78,5 +79,29 @@ namespace Elite
             New_Client new_Client = new New_Client();
             new_Client.Show();
         }
+
+        private void BTN_Admin_Click(object sender, EventArgs e)
+        {
+            this.PnlFormLoader.Controls.Clear();
+            LblHomeScreen.Text = "Administration Panel";
+            Admin_Panel admin_vrb = new Admin_Panel() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            admin_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(admin_vrb);
+            admin_vrb.Show();
+            BTN_Home.Visible = true;
+        }
+
+        private void BTN_Home_Click(object sender, EventArgs e)
+        {
+            this.PnlFormLoader.Controls.Clear();
+            LblHomeScreen.Text = "Search for a Client by last name or Case manager";
+            Main_Elite_Frm main_vrb = new Main_Elite_Frm() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            main_vrb.FormBorderStyle = FormBorderStyle.None;
+            this.PnlFormLoader.Controls.Add(main_vrb);
+            main_vrb.Show();
+            BTN_Home.Visible = false;
+        }
+
+        private void BTN_Minimize_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
     }
 }

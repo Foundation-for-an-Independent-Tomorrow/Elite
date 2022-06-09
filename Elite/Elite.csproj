@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_Panel.Designer.cs">
+      <DependentUpon>Admin_Panel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Client.cs" />
     <Compile Include="Client\Current_Selected_Client.cs" />
     <Compile Include="Data\DataHandler.cs" />
@@ -79,6 +85,9 @@
     <Compile Include="Splash_Screen.Designer.cs">
       <DependentUpon>Splash_Screen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin_Panel.resx">
+      <DependentUpon>Admin_Panel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Elite_Dashboard.resx">
       <DependentUpon>Elite_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
