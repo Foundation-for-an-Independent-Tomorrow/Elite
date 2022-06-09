@@ -50,6 +50,44 @@ namespace Elite.Data
 
         #endregion
 
+        #region Validation Methods
+
+        public static bool ClientExists(string fName, string lName, string lastFour)
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd = new SqlCommand("sp_Search_Clients_By_LastName", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@FIRSTNAME", fName));
+            cmd.Parameters.Add(new SqlParameter("@LASTNAME", lName));
+            cmd.Parameters.Add(new SqlParameter("@SOCIAL", lastFour));
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.HasRows)
+            {
+                rdr.Read();
+                if (rdr[0] == DBNull.Value || Convert.ToInt32(rdr[0]) == 0)
+                {
+                    return false;
+                }
+                if(Convert.ToInt32(rdr[0]) > 0)
+                {
+                    return true;
+                }
+            }
+            rdr.Close();
+            c.Close();
+            return false;
+        }
+
+        #endregion
+
         #region Create Methods
 
         public static void Create_New_Client(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, char middle_initial, string ssn)

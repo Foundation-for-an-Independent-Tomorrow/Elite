@@ -60,18 +60,25 @@ namespace Elite
 
             if(ISValid == true)
             {
-                if (String.IsNullOrEmpty(TXT_Client_MInitial.Text))
+                if (Data.DataHandler.ClientExists(TXT_Client_FName.Text, TXT_Client_LName.Text, TXT_Client_LastFour.Text) == false)
                 {
-                    Data.DataHandler.Create_New_Client_No_MI(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
-                        TXT_Client_LastFour.Text);
-                    MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (String.IsNullOrEmpty(TXT_Client_MInitial.Text))
+                    {
+                        Data.DataHandler.Create_New_Client_No_MI(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
+                            TXT_Client_LastFour.Text);
+                        MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        Data.DataHandler.Create_New_Client(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
+                            Convert.ToChar(TXT_Client_MInitial.Text), TXT_Client_LastFour.Text);
+                        MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
                 else
                 {
-                    Data.DataHandler.Create_New_Client(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
-                        Convert.ToChar(TXT_Client_MInitial.Text), TXT_Client_LastFour.Text);
-                    MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }                
+                    MessageBox.Show("The client already exists in the database. Try running a search for them instead.","Failure Adding new Client",MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
             }
 
             //Lambda function used to more easily clear fields
