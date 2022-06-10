@@ -40,6 +40,7 @@ namespace Elite
             this.ForeColor = System.Drawing.Color.GhostWhite;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Admin_Panel";
+            this.Opacity = 0.95D;
             this.Text = "Admin_Panel";
             this.ResumeLayout(false);
 

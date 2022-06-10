@@ -33,6 +33,8 @@ namespace Elite
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Elite_Dashboard));
             this.BTN_Exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BTN_New_Client = new System.Windows.Forms.Button();
+            this.BTN_Admin = new System.Windows.Forms.Button();
             this.BTN_Home = new System.Windows.Forms.Button();
             this.BTN_Close = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,12 +42,10 @@ namespace Elite
             this.LblLongDate = new System.Windows.Forms.Label();
             this.LblUserName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BTN_Minimize = new System.Windows.Forms.Button();
             this.LblHomeScreen = new System.Windows.Forms.Label();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.BTN_Admin = new System.Windows.Forms.Button();
-            this.BTN_New_Client = new System.Windows.Forms.Button();
-            this.BTN_Minimize = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,6 +83,35 @@ namespace Elite
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(193, 762);
             this.panel1.TabIndex = 5;
+            // 
+            // BTN_New_Client
+            // 
+            this.BTN_New_Client.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_New_Client.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_New_Client.FlatAppearance.BorderSize = 0;
+            this.BTN_New_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_New_Client.Location = new System.Drawing.Point(0, 145);
+            this.BTN_New_Client.Name = "BTN_New_Client";
+            this.BTN_New_Client.Size = new System.Drawing.Size(193, 34);
+            this.BTN_New_Client.TabIndex = 10;
+            this.BTN_New_Client.Text = "New Client";
+            this.BTN_New_Client.UseVisualStyleBackColor = false;
+            this.BTN_New_Client.Click += new System.EventHandler(this.BTN_New_Client_Click);
+            // 
+            // BTN_Admin
+            // 
+            this.BTN_Admin.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_Admin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BTN_Admin.FlatAppearance.BorderSize = 0;
+            this.BTN_Admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Admin.Location = new System.Drawing.Point(0, 694);
+            this.BTN_Admin.Name = "BTN_Admin";
+            this.BTN_Admin.Size = new System.Drawing.Size(193, 34);
+            this.BTN_Admin.TabIndex = 9;
+            this.BTN_Admin.Text = "Admin";
+            this.BTN_Admin.UseVisualStyleBackColor = false;
+            this.BTN_Admin.Visible = false;
+            this.BTN_Admin.Click += new System.EventHandler(this.BTN_Admin_Click);
             // 
             // BTN_Home
             // 
@@ -184,6 +213,22 @@ namespace Elite
             this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseMove);
             this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseUp);
             // 
+            // BTN_Minimize
+            // 
+            this.BTN_Minimize.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.BTN_Minimize.FlatAppearance.BorderSize = 0;
+            this.BTN_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Minimize.ForeColor = System.Drawing.Color.GhostWhite;
+            this.BTN_Minimize.Location = new System.Drawing.Point(955, 4);
+            this.BTN_Minimize.Name = "BTN_Minimize";
+            this.BTN_Minimize.Size = new System.Drawing.Size(33, 33);
+            this.BTN_Minimize.TabIndex = 6;
+            this.BTN_Minimize.Text = "_";
+            this.BTN_Minimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BTN_Minimize.UseVisualStyleBackColor = false;
+            this.BTN_Minimize.Click += new System.EventHandler(this.BTN_Minimize_Click);
+            // 
             // LblHomeScreen
             // 
             this.LblHomeScreen.AutoSize = true;
@@ -207,51 +252,6 @@ namespace Elite
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // BTN_Admin
-            // 
-            this.BTN_Admin.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_Admin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BTN_Admin.FlatAppearance.BorderSize = 0;
-            this.BTN_Admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Admin.Location = new System.Drawing.Point(0, 694);
-            this.BTN_Admin.Name = "BTN_Admin";
-            this.BTN_Admin.Size = new System.Drawing.Size(193, 34);
-            this.BTN_Admin.TabIndex = 9;
-            this.BTN_Admin.Text = "Admin";
-            this.BTN_Admin.UseVisualStyleBackColor = false;
-            this.BTN_Admin.Visible = false;
-            this.BTN_Admin.Click += new System.EventHandler(this.BTN_Admin_Click);
-            // 
-            // BTN_New_Client
-            // 
-            this.BTN_New_Client.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_New_Client.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTN_New_Client.FlatAppearance.BorderSize = 0;
-            this.BTN_New_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_New_Client.Location = new System.Drawing.Point(0, 145);
-            this.BTN_New_Client.Name = "BTN_New_Client";
-            this.BTN_New_Client.Size = new System.Drawing.Size(193, 34);
-            this.BTN_New_Client.TabIndex = 10;
-            this.BTN_New_Client.Text = "New Client";
-            this.BTN_New_Client.UseVisualStyleBackColor = false;
-            this.BTN_New_Client.Click += new System.EventHandler(this.BTN_New_Client_Click);
-            // 
-            // BTN_Minimize
-            // 
-            this.BTN_Minimize.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.BTN_Minimize.FlatAppearance.BorderSize = 0;
-            this.BTN_Minimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Minimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Minimize.ForeColor = System.Drawing.Color.GhostWhite;
-            this.BTN_Minimize.Location = new System.Drawing.Point(955, 4);
-            this.BTN_Minimize.Name = "BTN_Minimize";
-            this.BTN_Minimize.Size = new System.Drawing.Size(33, 33);
-            this.BTN_Minimize.TabIndex = 6;
-            this.BTN_Minimize.Text = "_";
-            this.BTN_Minimize.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BTN_Minimize.UseVisualStyleBackColor = false;
-            this.BTN_Minimize.Click += new System.EventHandler(this.BTN_Minimize_Click);
-            // 
             // Elite_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -267,6 +267,7 @@ namespace Elite
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Elite_Dashboard";
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Elite_Dashboard";
             this.Load += new System.EventHandler(this.Elite_Dashboard_Load);

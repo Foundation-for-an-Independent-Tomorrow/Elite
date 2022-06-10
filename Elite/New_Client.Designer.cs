@@ -45,7 +45,7 @@ namespace Elite
             // TXT_Client_FName
             // 
             this.TXT_Client_FName.Location = new System.Drawing.Point(320, 100);
-            this.TXT_Client_FName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TXT_Client_FName.Margin = new System.Windows.Forms.Padding(5);
             this.TXT_Client_FName.Name = "TXT_Client_FName";
             this.TXT_Client_FName.Size = new System.Drawing.Size(221, 27);
             this.TXT_Client_FName.TabIndex = 0;
@@ -167,8 +167,9 @@ namespace Elite
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.GhostWhite;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "New_Client";
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New_Client";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseDown);

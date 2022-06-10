@@ -146,6 +146,7 @@ namespace Elite
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main_Elite_Frm";
+            this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Elite";
             this.Load += new System.EventHandler(this.Main_Elite_Frm_Load);

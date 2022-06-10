@@ -94,7 +94,8 @@ namespace Elite
 
         private void DGV_Client_Search_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Existing_Client_Information ECI_Frm = new Existing_Client_Information();
+            ECI_Frm.Show();
         }
     }
 }
