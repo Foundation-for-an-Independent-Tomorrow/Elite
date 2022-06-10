@@ -65,6 +65,12 @@
     <Compile Include="Elite_Dashboard.Designer.cs">
       <DependentUpon>Elite_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Existing_Client_Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Existing_Client_Information.Designer.cs">
+      <DependentUpon>Existing_Client_Information.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Elite_Frm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Elite_Dashboard.resx">
       <DependentUpon>Elite_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Existing_Client_Information.resx">
+      <DependentUpon>Existing_Client_Information.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Elite_Frm.resx">
       <DependentUpon>Main_Elite_Frm.cs</DependentUpon>
@@ -131,6 +140,10 @@
     <None Include="Resources\Elite Icon pic.jpg" />
     <None Include="Resources\FIT Vector-Transparent.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="RJCodeAdvance.RJControls">
+      <Version>1.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
