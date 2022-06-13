@@ -39,16 +39,10 @@ namespace Elite
             }
         }
 
-        private void Dashboard_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-        }
+        private void Dashboard_MouseUp(object sender, MouseEventArgs e) => dragging = false;
 
         #endregion Movable Window
 
-        private void BTN_Close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private void BTN_Close_Click(object sender, EventArgs e) => Close();
     }
 }
