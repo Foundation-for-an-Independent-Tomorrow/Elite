@@ -48,13 +48,12 @@ namespace Elite
 
         public void Fill_Client_Info()
         {
-            rjTextBox1.Texts = ex_Client.ClientID.ToString();
             rjTextBox2.Texts = ex_Client.FirstName;
             rjTextBox3.Texts = ex_Client.MiddleInitial;
             rjTextBox4.Texts = ex_Client.LastName;
             rjTextBox5.Texts = ex_Client.Social;
             rjDatePicker1.Value = ex_Client.AppDate;
-            rjTextBox6.Texts = ex_Client.CMID.ToString();
+            rjDatePicker1.Enabled = false;
         }
 
         #region Button Click Events

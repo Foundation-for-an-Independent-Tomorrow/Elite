@@ -30,7 +30,6 @@ namespace Elite
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Existing_Client_Information));
-            this.rjTextBox1 = new RJCodeAdvance.RJControls.RJTextBox();
             this.rjToggleButton1 = new RJCodeAdvance.RJControls.RJToggleButton();
             this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
             this.BTN_Close = new RJCodeAdvance.RJControls.RJButton();
@@ -38,31 +37,8 @@ namespace Elite
             this.rjTextBox3 = new RJCodeAdvance.RJControls.RJTextBox();
             this.rjTextBox4 = new RJCodeAdvance.RJControls.RJTextBox();
             this.rjTextBox5 = new RJCodeAdvance.RJControls.RJTextBox();
-            this.rjTextBox6 = new RJCodeAdvance.RJControls.RJTextBox();
             this.BTN_FRM_CLOSE = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox1.BorderRadius = 0;
-            this.rjTextBox1.BorderSize = 2;
-            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(103, 21);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(250, 31);
-            this.rjTextBox1.TabIndex = 0;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // rjToggleButton1
             // 
@@ -200,37 +176,16 @@ namespace Elite
             this.rjTextBox5.Texts = "";
             this.rjTextBox5.UnderlinedStyle = false;
             // 
-            // rjTextBox6
-            // 
-            this.rjTextBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox6.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.rjTextBox6.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox6.BorderRadius = 0;
-            this.rjTextBox6.BorderSize = 2;
-            this.rjTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox6.Location = new System.Drawing.Point(103, 257);
-            this.rjTextBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox6.Multiline = false;
-            this.rjTextBox6.Name = "rjTextBox6";
-            this.rjTextBox6.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox6.PasswordChar = false;
-            this.rjTextBox6.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox6.PlaceholderText = "";
-            this.rjTextBox6.Size = new System.Drawing.Size(250, 31);
-            this.rjTextBox6.TabIndex = 8;
-            this.rjTextBox6.Texts = "";
-            this.rjTextBox6.UnderlinedStyle = false;
-            // 
             // BTN_FRM_CLOSE
             // 
-            this.BTN_FRM_CLOSE.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.BTN_FRM_CLOSE.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.BTN_FRM_CLOSE.FlatAppearance.BorderSize = 0;
             this.BTN_FRM_CLOSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_FRM_CLOSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_FRM_CLOSE.ForeColor = System.Drawing.Color.GhostWhite;
-            this.BTN_FRM_CLOSE.Location = new System.Drawing.Point(649, 146);
+            this.BTN_FRM_CLOSE.Location = new System.Drawing.Point(702, 60);
             this.BTN_FRM_CLOSE.Name = "BTN_FRM_CLOSE";
-            this.BTN_FRM_CLOSE.Size = new System.Drawing.Size(75, 23);
+            this.BTN_FRM_CLOSE.Size = new System.Drawing.Size(75, 32);
             this.BTN_FRM_CLOSE.TabIndex = 9;
             this.BTN_FRM_CLOSE.Text = "Close";
             this.BTN_FRM_CLOSE.UseVisualStyleBackColor = false;
@@ -243,7 +198,6 @@ namespace Elite
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BTN_FRM_CLOSE);
-            this.Controls.Add(this.rjTextBox6);
             this.Controls.Add(this.rjTextBox5);
             this.Controls.Add(this.rjTextBox4);
             this.Controls.Add(this.rjTextBox3);
@@ -251,7 +205,6 @@ namespace Elite
             this.Controls.Add(this.BTN_Close);
             this.Controls.Add(this.rjDatePicker1);
             this.Controls.Add(this.rjToggleButton1);
-            this.Controls.Add(this.rjTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -269,8 +222,6 @@ namespace Elite
         }
 
         #endregion
-
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox1;
         private RJCodeAdvance.RJControls.RJToggleButton rjToggleButton1;
         private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker1;
         private RJCodeAdvance.RJControls.RJButton BTN_Close;
@@ -278,7 +229,6 @@ namespace Elite
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox3;
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox4;
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox5;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox6;
         private System.Windows.Forms.Button BTN_FRM_CLOSE;
     }
 }
