@@ -94,8 +94,17 @@ namespace Elite
 
         private void DGV_Client_Search_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Existing_Client_Information ECI_Frm = new Existing_Client_Information();
-            ECI_Frm.Show();
+            _selectedClient = DGV_Client_Search.CurrentCell.RowIndex;
+            Client.SelectedClient = Data.DataHandler.Get_Client_By_ClientID((int)DGV_Client_Search.Rows[_selectedClient].Cells[0].Value);
+            if (Client.SelectedClient == null)
+            {
+                MessageBox.Show("There was a problem getting the client information.", "Oh No!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Existing_Client_Information ECI_Frm = new Existing_Client_Information();
+                ECI_Frm.Show();
+            }
         }
     }
 }

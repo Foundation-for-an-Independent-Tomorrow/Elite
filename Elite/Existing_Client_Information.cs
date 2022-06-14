@@ -12,9 +12,12 @@ namespace Elite
 {
     public partial class Existing_Client_Information : Form
     {
+        Client ex_Client;
         public Existing_Client_Information()
         {
             InitializeComponent();
+            ex_Client = Client.SelectedClient;
+            Fill_Client_Info();
         }
 
         #region Movable Window
@@ -43,6 +46,23 @@ namespace Elite
 
         #endregion Movable Window
 
+        public void Fill_Client_Info()
+        {
+            rjTextBox1.Texts = ex_Client.ClientID.ToString();
+            rjTextBox2.Texts = ex_Client.FirstName;
+            rjTextBox3.Texts = ex_Client.MiddleInitial;
+            rjTextBox4.Texts = ex_Client.LastName;
+            rjTextBox5.Texts = ex_Client.Social;
+            rjDatePicker1.Value = ex_Client.AppDate;
+            rjTextBox6.Texts = ex_Client.CMID.ToString();
+        }
+
+        #region Button Click Events
+
         private void BTN_Close_Click(object sender, EventArgs e) => Close();
+
+        private void BTN_FRM_CLOSE_Click(object sender, EventArgs e) => Close();
+
+        #endregion
     }
 }

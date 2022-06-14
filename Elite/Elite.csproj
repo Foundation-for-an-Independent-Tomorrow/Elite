@@ -57,7 +57,6 @@
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\Client.cs" />
-    <Compile Include="Client\Current_Selected_Client.cs" />
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Elite_Dashboard.cs">
       <SubType>Form</SubType>

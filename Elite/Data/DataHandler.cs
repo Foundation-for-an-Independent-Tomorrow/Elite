@@ -48,6 +48,34 @@ namespace Elite.Data
             return 0;
         }
 
+        public static Client Get_Client_By_ClientID(int clientID)
+        {
+           Client client;
+
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd = new SqlCommand("sp_Get_Existing_Client_By_ClientID", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.HasRows)
+            {
+                rdr.Read();
+                client = new Client(Convert.ToInt32(rdr[0]), rdr[1].ToString(), rdr[2].ToString(), rdr[3].ToString(), rdr[4].ToString(), Convert.ToDateTime(rdr[5]), Convert.ToInt32(rdr[6]));
+                return client;
+            }
+            rdr.Close();
+            c.Close();
+            return null;
+        }
+
         #endregion
 
         #region Validation Methods
