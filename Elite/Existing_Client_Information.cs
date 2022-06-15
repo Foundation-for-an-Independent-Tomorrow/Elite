@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,11 @@ namespace Elite
         {
             InitializeComponent();
             ex_Client = Client.SelectedClient;
+            SetStateComboBox();
             Fill_Client_Info();
+            Lbl_ClientInfo_ClientName.Text = $"Client Information for {ex_Client.FirstName} {ex_Client.LastName}";
+            CBox_CMs.Height = 34;
+            Fill_CM_ComboBox(ex_Client.CMID);
         }
 
         #region Movable Window
@@ -48,12 +53,12 @@ namespace Elite
 
         public void Fill_Client_Info()
         {
-            rjTextBox2.Texts = ex_Client.FirstName;
-            rjTextBox3.Texts = ex_Client.MiddleInitial;
-            rjTextBox4.Texts = ex_Client.LastName;
-            rjTextBox5.Texts = ex_Client.Social;
-            rjDatePicker1.Value = ex_Client.AppDate;
-            rjDatePicker1.Enabled = false;
+            rjTxt_fName.Texts = ex_Client.FirstName;
+            rjTxt_mInitial.Texts = ex_Client.MiddleInitial;
+            rjTxt_lName.Texts = ex_Client.LastName;
+            rjTxt_Last_Four.Texts = ex_Client.Social;
+            rjDPicker.Value = ex_Client.AppDate;
+            rjDPicker.Enabled = false;
         }
 
         #region Button Click Events
@@ -63,5 +68,47 @@ namespace Elite
         private void BTN_FRM_CLOSE_Click(object sender, EventArgs e) => Close();
 
         #endregion
+
+        public void Fill_CM_ComboBox(int cmID)
+        {
+            SqlConnection c = new SqlConnection(Data.DataHandler.ConnectionString);
+            c.Open();
+            try
+            {
+                //string CM_Query = "SELECT CMID, CONCAT(FirstName, ' ', LastName) AS 'Name', Login, Active FROM CaseManagers;";
+                SqlCommand cmd = new SqlCommand("sp_Get_CM_List", c)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                SqlDataAdapter da = new SqlDataAdapter
+                {
+                    SelectCommand = cmd
+                };
+
+                DataSet ds = new DataSet();
+                da.Fill(ds, "CMs");
+                CBox_CMs.DisplayMember = "Name";
+                CBox_CMs.ValueMember = "CMID";
+                CBox_CMs.DataSource = ds.Tables["CMs"];
+                DataRowView dataRowView = CBox_CMs.SelectedItem as DataRowView;
+                CBox_CMs.SelectedValue = cmID;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error loading the list of Case Managers: " + ex.Message);
+            }
+            c.Close();
+        }
+
+        public void SetStateComboBox()
+        {
+            rjCBox_State.Items.AddRange(new object[] {
+                "NV", "AK", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL",
+                "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
+                "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NH", "NJ", 
+                "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+                "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+            });
+        }
     }
 }

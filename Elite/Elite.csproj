@@ -56,7 +56,20 @@
     <Compile Include="Admin_Panel.Designer.cs">
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client\CaseInfo.cs" />
+    <Compile Include="Client\CaseNote.cs" />
     <Compile Include="Client\Client.cs" />
+    <Compile Include="Client\ClientInfo.cs" />
+    <Compile Include="Client\CriminalHistory.cs" />
+    <Compile Include="Client\Debt.cs" />
+    <Compile Include="Client\Dependants.cs" />
+    <Compile Include="Client\Expenses.cs" />
+    <Compile Include="Client\Income.cs" />
+    <Compile Include="Client\JobReady.cs" />
+    <Compile Include="Client\NewEmployment.cs" />
+    <Compile Include="Client\Outcomes.cs" />
+    <Compile Include="Client\PublicAssistance.cs" />
+    <Compile Include="Client\REI.cs" />
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Elite_Dashboard.cs">
       <SubType>Form</SubType>

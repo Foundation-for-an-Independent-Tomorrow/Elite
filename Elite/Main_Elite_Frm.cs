@@ -15,6 +15,7 @@ namespace Elite
     public partial class Main_Elite_Frm : Form
     {
         public int _selectedClient;
+        public int _selectedClientID;
 
         public Main_Elite_Frm()
         {
@@ -95,7 +96,8 @@ namespace Elite
         private void DGV_Client_Search_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             _selectedClient = DGV_Client_Search.CurrentCell.RowIndex;
-            Client.SelectedClient = Data.DataHandler.Get_Client_By_ClientID((int)DGV_Client_Search.Rows[_selectedClient].Cells[0].Value);
+            _selectedClientID = (int)DGV_Client_Search.Rows[_selectedClient].Cells[0].Value;
+            Client.SelectedClient = Data.DataHandler.Get_Client_By_ClientID(_selectedClientID);
             if (Client.SelectedClient == null)
             {
                 MessageBox.Show("There was a problem getting the client information.", "Oh No!", MessageBoxButtons.OK, MessageBoxIcon.Error);
