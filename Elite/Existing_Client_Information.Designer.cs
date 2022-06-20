@@ -54,13 +54,16 @@ namespace Elite
             this.Lbl_ZIP = new System.Windows.Forms.Label();
             this.CBox_CMs = new System.Windows.Forms.ComboBox();
             this.rjCBox_State = new System.Windows.Forms.ComboBox();
+            this.rjTextBox1 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.rjTextBox2 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(470, 741);
-            this.rjToggleButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rjToggleButton1.Location = new System.Drawing.Point(401, 364);
+            this.rjToggleButton1.Margin = new System.Windows.Forms.Padding(4);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(60, 27);
             this.rjToggleButton1.Name = "rjToggleButton1";
             this.rjToggleButton1.OffBackColor = System.Drawing.Color.Gray;
@@ -71,6 +74,7 @@ namespace Elite
             this.rjToggleButton1.TabIndex = 100;
             this.rjToggleButton1.TabStop = false;
             this.rjToggleButton1.UseVisualStyleBackColor = true;
+            this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.ToggleOn_Off);
             // 
             // rjDPicker
             // 
@@ -79,7 +83,7 @@ namespace Elite
             this.rjDPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.rjDPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.rjDPicker.Location = new System.Drawing.Point(148, 304);
-            this.rjDPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rjDPicker.Margin = new System.Windows.Forms.Padding(4);
             this.rjDPicker.MinimumSize = new System.Drawing.Size(4, 35);
             this.rjDPicker.Name = "rjDPicker";
             this.rjDPicker.Size = new System.Drawing.Size(188, 35);
@@ -100,7 +104,7 @@ namespace Elite
             this.BTN_Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Close.ForeColor = System.Drawing.Color.GhostWhite;
             this.BTN_Close.Location = new System.Drawing.Point(1009, 15);
-            this.BTN_Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_Close.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_Close.Name = "BTN_Close";
             this.BTN_Close.Size = new System.Drawing.Size(41, 49);
             this.BTN_Close.TabIndex = 3;
@@ -119,7 +123,7 @@ namespace Elite
             this.rjTxt_fName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_fName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rjTxt_fName.Location = new System.Drawing.Point(148, 113);
-            this.rjTxt_fName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTxt_fName.Margin = new System.Windows.Forms.Padding(5);
             this.rjTxt_fName.Multiline = false;
             this.rjTxt_fName.Name = "rjTxt_fName";
             this.rjTxt_fName.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -141,7 +145,7 @@ namespace Elite
             this.rjTxt_mInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_mInitial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rjTxt_mInitial.Location = new System.Drawing.Point(148, 161);
-            this.rjTxt_mInitial.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTxt_mInitial.Margin = new System.Windows.Forms.Padding(5);
             this.rjTxt_mInitial.Multiline = false;
             this.rjTxt_mInitial.Name = "rjTxt_mInitial";
             this.rjTxt_mInitial.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -163,7 +167,7 @@ namespace Elite
             this.rjTxt_lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_lName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rjTxt_lName.Location = new System.Drawing.Point(148, 209);
-            this.rjTxt_lName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTxt_lName.Margin = new System.Windows.Forms.Padding(5);
             this.rjTxt_lName.Multiline = false;
             this.rjTxt_lName.Name = "rjTxt_lName";
             this.rjTxt_lName.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -185,7 +189,7 @@ namespace Elite
             this.rjTxt_Last_Four.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_Last_Four.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rjTxt_Last_Four.Location = new System.Drawing.Point(148, 257);
-            this.rjTxt_Last_Four.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTxt_Last_Four.Margin = new System.Windows.Forms.Padding(5);
             this.rjTxt_Last_Four.Multiline = false;
             this.rjTxt_Last_Four.Name = "rjTxt_Last_Four";
             this.rjTxt_Last_Four.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -205,7 +209,7 @@ namespace Elite
             this.BTN_FRM_CLOSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_FRM_CLOSE.ForeColor = System.Drawing.Color.GhostWhite;
             this.BTN_FRM_CLOSE.Location = new System.Drawing.Point(936, 74);
-            this.BTN_FRM_CLOSE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTN_FRM_CLOSE.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_FRM_CLOSE.Name = "BTN_FRM_CLOSE";
             this.BTN_FRM_CLOSE.Size = new System.Drawing.Size(100, 39);
             this.BTN_FRM_CLOSE.TabIndex = 9;
@@ -428,6 +432,68 @@ namespace Elite
             this.rjCBox_State.Size = new System.Drawing.Size(250, 24);
             this.rjCBox_State.TabIndex = 101;
             // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.rjTextBox1.BorderRadius = 0;
+            this.rjTextBox1.BorderSize = 2;
+            this.rjTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rjTextBox1.Location = new System.Drawing.Point(62, 586);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "";
+            this.rjTextBox1.Size = new System.Drawing.Size(250, 31);
+            this.rjTextBox1.TabIndex = 102;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
+            // 
+            // rjTextBox2
+            // 
+            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.rjTextBox2.BorderRadius = 0;
+            this.rjTextBox2.BorderSize = 2;
+            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.rjTextBox2.Location = new System.Drawing.Point(349, 586);
+            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox2.Multiline = false;
+            this.rjTextBox2.Name = "rjTextBox2";
+            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rjTextBox2.PasswordChar = false;
+            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox2.PlaceholderText = "";
+            this.rjTextBox2.Size = new System.Drawing.Size(250, 31);
+            this.rjTextBox2.TabIndex = 103;
+            this.rjTextBox2.Texts = "";
+            this.rjTextBox2.UnderlinedStyle = false;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(686, 568);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(150, 40);
+            this.rjButton1.TabIndex = 104;
+            this.rjButton1.Text = "rjButton1";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
             // Existing_Client_Information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,7 +501,10 @@ namespace Elite
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.CancelButton = this.BTN_Close;
-            this.ClientSize = new System.Drawing.Size(1067, 433);
+            this.ClientSize = new System.Drawing.Size(1101, 433);
+            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.rjTextBox2);
+            this.Controls.Add(this.rjTextBox1);
             this.Controls.Add(this.rjCBox_State);
             this.Controls.Add(this.CBox_CMs);
             this.Controls.Add(this.Lbl_ZIP);
@@ -463,7 +532,7 @@ namespace Elite
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Existing_Client_Information";
             this.Opacity = 0.97D;
@@ -503,5 +572,8 @@ namespace Elite
         private System.Windows.Forms.Label Lbl_ZIP;
         private System.Windows.Forms.ComboBox CBox_CMs;
         private System.Windows.Forms.ComboBox rjCBox_State;
+        private RJCodeAdvance.RJControls.RJTextBox rjTextBox1;
+        private RJCodeAdvance.RJControls.RJTextBox rjTextBox2;
+        private RJCodeAdvance.RJControls.RJButton rjButton1;
     }
 }

@@ -14,10 +14,12 @@ namespace Elite
     public partial class Existing_Client_Information : Form
     {
         Client ex_Client;
+        List<KeyValuePair<string, object>> clientInfoList;
         public Existing_Client_Information()
         {
             InitializeComponent();
             ex_Client = Client.SelectedClient;
+            clientInfoList = Data.DataHandler.Get_Client_Info_By_ClientID(ex_Client.ClientID);
             SetStateComboBox();
             Fill_Client_Info();
             Lbl_ClientInfo_ClientName.Text = $"Client Information for {ex_Client.FirstName} {ex_Client.LastName}";
@@ -59,6 +61,11 @@ namespace Elite
             rjTxt_Last_Four.Texts = ex_Client.Social;
             rjDPicker.Value = ex_Client.AppDate;
             rjDPicker.Enabled = false;
+            rjTxt_Address1.Texts = clientInfoList.First(kvp => kvp.Key == "Address1").Value.ToString();
+            rjTxt_Address2.Texts = clientInfoList.First(kvp => kvp.Key == "Address2").Value.ToString();
+            rjTxt_City.Texts = clientInfoList.First(kvp => kvp.Key == "City").Value.ToString();
+            rjCBox_State.SelectedItem = clientInfoList.First(kvp => kvp.Key == "USState").Value.ToString();
+            rjTxt_Zip.Texts = clientInfoList.First(kvp => kvp.Key == "ZIP").Value.ToString();
         }
 
         #region Button Click Events
@@ -109,6 +116,10 @@ namespace Elite
                 "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
                 "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
             });
+        }
+
+        public void ToggleOn_Off(object sender, EventArgs e)
+        {
         }
     }
 }
