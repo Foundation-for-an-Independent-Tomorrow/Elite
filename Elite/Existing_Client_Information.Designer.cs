@@ -57,12 +57,13 @@ namespace Elite
             this.rjTextBox1 = new RJCodeAdvance.RJControls.RJTextBox();
             this.rjTextBox2 = new RJCodeAdvance.RJControls.RJTextBox();
             this.rjButton1 = new RJCodeAdvance.RJControls.RJButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(401, 364);
+            this.rjToggleButton1.Location = new System.Drawing.Point(493, 1060);
             this.rjToggleButton1.Margin = new System.Windows.Forms.Padding(4);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(60, 27);
             this.rjToggleButton1.Name = "rjToggleButton1";
@@ -208,7 +209,7 @@ namespace Elite
             this.BTN_FRM_CLOSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_FRM_CLOSE.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_FRM_CLOSE.ForeColor = System.Drawing.Color.GhostWhite;
-            this.BTN_FRM_CLOSE.Location = new System.Drawing.Point(936, 74);
+            this.BTN_FRM_CLOSE.Location = new System.Drawing.Point(971, 1048);
             this.BTN_FRM_CLOSE.Margin = new System.Windows.Forms.Padding(4);
             this.BTN_FRM_CLOSE.Name = "BTN_FRM_CLOSE";
             this.BTN_FRM_CLOSE.Size = new System.Drawing.Size(100, 39);
@@ -419,7 +420,7 @@ namespace Elite
             // CBox_CMs
             // 
             this.CBox_CMs.FormattingEnabled = true;
-            this.CBox_CMs.Location = new System.Drawing.Point(831, 167);
+            this.CBox_CMs.Location = new System.Drawing.Point(867, 119);
             this.CBox_CMs.Name = "CBox_CMs";
             this.CBox_CMs.Size = new System.Drawing.Size(150, 24);
             this.CBox_CMs.TabIndex = 25;
@@ -494,6 +495,16 @@ namespace Elite
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.GhostWhite;
+            this.label1.Location = new System.Drawing.Point(801, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 17);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Case Manager:";
+            // 
             // Existing_Client_Information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -501,7 +512,8 @@ namespace Elite
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.CancelButton = this.BTN_Close;
-            this.ClientSize = new System.Drawing.Size(1101, 433);
+            this.ClientSize = new System.Drawing.Size(1084, 1100);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.rjTextBox2);
             this.Controls.Add(this.rjTextBox1);
@@ -575,5 +587,6 @@ namespace Elite
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox1;
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox2;
         private RJCodeAdvance.RJControls.RJButton rjButton1;
+        private System.Windows.Forms.Label label1;
     }
 }
