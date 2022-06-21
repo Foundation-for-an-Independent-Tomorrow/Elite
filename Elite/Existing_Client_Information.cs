@@ -61,11 +61,14 @@ namespace Elite
             rjTxt_Last_Four.Texts = ex_Client.Social;
             rjDPicker.Value = ex_Client.AppDate;
             rjDPicker.Enabled = false;
-            rjTxt_Address1.Texts = clientInfoList.First(kvp => kvp.Key == "Address1").Value.ToString();
-            rjTxt_Address2.Texts = clientInfoList.First(kvp => kvp.Key == "Address2").Value.ToString();
-            rjTxt_City.Texts = clientInfoList.First(kvp => kvp.Key == "City").Value.ToString();
-            rjCBox_State.SelectedItem = clientInfoList.First(kvp => kvp.Key == "USState").Value.ToString();
-            rjTxt_Zip.Texts = clientInfoList.First(kvp => kvp.Key == "ZIP").Value.ToString();
+            if (clientInfoList != null) 
+            { 
+                rjTxt_Address1.Texts = clientInfoList.First(kvp => kvp.Key == "Address1").Value.ToString();
+                rjTxt_Address2.Texts = clientInfoList.First(kvp => kvp.Key == "Address2").Value.ToString();
+                rjTxt_City.Texts = clientInfoList.First(kvp => kvp.Key == "City").Value.ToString();
+                rjCBox_State.SelectedItem = clientInfoList.First(kvp => kvp.Key == "USState").Value.ToString();
+                rjTxt_Zip.Texts = clientInfoList.First(kvp => kvp.Key == "ZIP").Value.ToString();
+            }
         }
 
         #region Button Click Events
