@@ -104,8 +104,8 @@ namespace Elite
             }
             else
             {
-                Existing_Client_Information ECI_Frm = new Existing_Client_Information();
-                ECI_Frm.Show();
+                Existing_Client_Dashboard ecd = new Existing_Client_Dashboard();
+                ecd.Show();
             }
         }
     }
