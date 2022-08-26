@@ -63,14 +63,13 @@
     <Compile Include="Client\CriminalHistory.cs" />
     <Compile Include="Client\Debt.cs" />
     <Compile Include="Client\Dependants.cs" />
+    <Compile Include="Client\Expenses.cs" />
+    <Compile Include="Client\Income.cs" />
     <Compile Include="Client\JobReady.cs" />
+    <Compile Include="Client\NewEmployment.cs" />
+    <Compile Include="Client\Outcomes.cs" />
+    <Compile Include="Client\PublicAssistance.cs" />
     <Compile Include="Client\REI.cs" />
-    <Compile Include="Criminal_History.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Criminal_History.designer.cs">
-      <DependentUpon>Criminal_History.cs</DependentUpon>
-    </Compile>
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Elite_Dashboard.cs">
       <SubType>Form</SubType>
@@ -78,29 +77,11 @@
     <Compile Include="Elite_Dashboard.Designer.cs">
       <DependentUpon>Elite_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Existing_Client_Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Existing_Client_Dashboard.Designer.cs">
-      <DependentUpon>Existing_Client_Dashboard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Existing_Client_Information.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Existing_Client_Information.Designer.cs">
       <DependentUpon>Existing_Client_Information.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Expenses.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Expenses.designer.cs">
-      <DependentUpon>Expenses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Income.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Income.designer.cs">
-      <DependentUpon>Income.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Elite_Frm.cs">
       <SubType>Form</SubType>
@@ -114,18 +95,6 @@
     <Compile Include="New_Client.Designer.cs">
       <DependentUpon>New_Client.cs</DependentUpon>
     </Compile>
-    <Compile Include="New_Employment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="New_Employment.designer.cs">
-      <DependentUpon>New_Employment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Outcomes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Outcomes.designer.cs">
-      <DependentUpon>Outcomes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Splash_Screen.cs">
@@ -137,35 +106,17 @@
     <EmbeddedResource Include="Admin_Panel.resx">
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Criminal_History.resx">
-      <DependentUpon>Criminal_History.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Elite_Dashboard.resx">
       <DependentUpon>Elite_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Existing_Client_Dashboard.resx">
-      <DependentUpon>Existing_Client_Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Existing_Client_Information.resx">
       <DependentUpon>Existing_Client_Information.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Expenses.resx">
-      <DependentUpon>Expenses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Income.resx">
-      <DependentUpon>Income.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Elite_Frm.resx">
       <DependentUpon>Main_Elite_Frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New_Client.resx">
       <DependentUpon>New_Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="New_Employment.resx">
-      <DependentUpon>New_Employment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Outcomes.resx">
-      <DependentUpon>Outcomes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
