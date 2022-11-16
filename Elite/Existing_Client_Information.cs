@@ -231,7 +231,6 @@ namespace Elite
 
         private void rjTButton_Conviction_CheckStateChanged(object sender, EventArgs e)
         {
-            this.ecd.Crim_Hist_Visability = rjTButton_Conviction.Checked;
         }
 
         private void Existing_Client_Information_Load(object sender, EventArgs e)

@@ -50,10 +50,6 @@
             this.Lbl_HourlyWage = new System.Windows.Forms.Label();
             this.rjTxt_HoursPerWeek = new RJCodeAdvance.RJControls.RJTextBox();
             this.Lbl_HoursPerWeek = new System.Windows.Forms.Label();
-            this.rjTxt_DescriptionOfDuties = new RJCodeAdvance.RJControls.RJTextBox();
-            this.Lbl_DescriptionOfDuties = new System.Windows.Forms.Label();
-            this.rjTxt_ReasonForLeavingPrevJob = new RJCodeAdvance.RJControls.RJTextBox();
-            this.Lbl_ReasonForLeavingPrevJob = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rjTxt_BusinessName
@@ -378,80 +374,12 @@
             this.Lbl_HoursPerWeek.TabIndex = 117;
             this.Lbl_HoursPerWeek.Text = "Hours Per Week:";
             // 
-            // rjTxt_DescriptionOfDuties
-            // 
-            this.rjTxt_DescriptionOfDuties.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTxt_DescriptionOfDuties.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.rjTxt_DescriptionOfDuties.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTxt_DescriptionOfDuties.BorderRadius = 0;
-            this.rjTxt_DescriptionOfDuties.BorderSize = 2;
-            this.rjTxt_DescriptionOfDuties.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTxt_DescriptionOfDuties.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_DescriptionOfDuties.Location = new System.Drawing.Point(192, 476);
-            this.rjTxt_DescriptionOfDuties.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTxt_DescriptionOfDuties.Multiline = false;
-            this.rjTxt_DescriptionOfDuties.Name = "rjTxt_DescriptionOfDuties";
-            this.rjTxt_DescriptionOfDuties.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTxt_DescriptionOfDuties.PasswordChar = false;
-            this.rjTxt_DescriptionOfDuties.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTxt_DescriptionOfDuties.PlaceholderText = "";
-            this.rjTxt_DescriptionOfDuties.Size = new System.Drawing.Size(250, 31);
-            this.rjTxt_DescriptionOfDuties.TabIndex = 118;
-            this.rjTxt_DescriptionOfDuties.Texts = "";
-            this.rjTxt_DescriptionOfDuties.UnderlinedStyle = false;
-            // 
-            // Lbl_DescriptionOfDuties
-            // 
-            this.Lbl_DescriptionOfDuties.AutoSize = true;
-            this.Lbl_DescriptionOfDuties.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_DescriptionOfDuties.Location = new System.Drawing.Point(75, 485);
-            this.Lbl_DescriptionOfDuties.Name = "Lbl_DescriptionOfDuties";
-            this.Lbl_DescriptionOfDuties.Size = new System.Drawing.Size(110, 13);
-            this.Lbl_DescriptionOfDuties.TabIndex = 119;
-            this.Lbl_DescriptionOfDuties.Text = "Description Of Duties:";
-            // 
-            // rjTxt_ReasonForLeavingPrevJob
-            // 
-            this.rjTxt_ReasonForLeavingPrevJob.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTxt_ReasonForLeavingPrevJob.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.rjTxt_ReasonForLeavingPrevJob.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTxt_ReasonForLeavingPrevJob.BorderRadius = 0;
-            this.rjTxt_ReasonForLeavingPrevJob.BorderSize = 2;
-            this.rjTxt_ReasonForLeavingPrevJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTxt_ReasonForLeavingPrevJob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_ReasonForLeavingPrevJob.Location = new System.Drawing.Point(192, 515);
-            this.rjTxt_ReasonForLeavingPrevJob.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTxt_ReasonForLeavingPrevJob.Multiline = false;
-            this.rjTxt_ReasonForLeavingPrevJob.Name = "rjTxt_ReasonForLeavingPrevJob";
-            this.rjTxt_ReasonForLeavingPrevJob.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTxt_ReasonForLeavingPrevJob.PasswordChar = false;
-            this.rjTxt_ReasonForLeavingPrevJob.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTxt_ReasonForLeavingPrevJob.PlaceholderText = "";
-            this.rjTxt_ReasonForLeavingPrevJob.Size = new System.Drawing.Size(250, 31);
-            this.rjTxt_ReasonForLeavingPrevJob.TabIndex = 120;
-            this.rjTxt_ReasonForLeavingPrevJob.Texts = "";
-            this.rjTxt_ReasonForLeavingPrevJob.UnderlinedStyle = false;
-            // 
-            // Lbl_ReasonForLeavingPrevJob
-            // 
-            this.Lbl_ReasonForLeavingPrevJob.AutoSize = true;
-            this.Lbl_ReasonForLeavingPrevJob.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_ReasonForLeavingPrevJob.Location = new System.Drawing.Point(16, 524);
-            this.Lbl_ReasonForLeavingPrevJob.Name = "Lbl_ReasonForLeavingPrevJob";
-            this.Lbl_ReasonForLeavingPrevJob.Size = new System.Drawing.Size(170, 13);
-            this.Lbl_ReasonForLeavingPrevJob.TabIndex = 121;
-            this.Lbl_ReasonForLeavingPrevJob.Text = "Reason For Leaving Previous Job:";
-            // 
             // New_Employment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1007, 594);
-            this.Controls.Add(this.Lbl_ReasonForLeavingPrevJob);
-            this.Controls.Add(this.rjTxt_ReasonForLeavingPrevJob);
-            this.Controls.Add(this.Lbl_DescriptionOfDuties);
-            this.Controls.Add(this.rjTxt_DescriptionOfDuties);
             this.Controls.Add(this.Lbl_HoursPerWeek);
             this.Controls.Add(this.rjTxt_HoursPerWeek);
             this.Controls.Add(this.Lbl_HourlyWage);
@@ -506,9 +434,5 @@
         private System.Windows.Forms.Label Lbl_HourlyWage;
         private RJCodeAdvance.RJControls.RJTextBox rjTxt_HoursPerWeek;
         private System.Windows.Forms.Label Lbl_HoursPerWeek;
-        private RJCodeAdvance.RJControls.RJTextBox rjTxt_DescriptionOfDuties;
-        private System.Windows.Forms.Label Lbl_DescriptionOfDuties;
-        private RJCodeAdvance.RJControls.RJTextBox rjTxt_ReasonForLeavingPrevJob;
-        private System.Windows.Forms.Label Lbl_ReasonForLeavingPrevJob;
     }
 }

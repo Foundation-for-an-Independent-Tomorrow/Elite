@@ -72,16 +72,5 @@ namespace Elite
         {
 
         }
-
-        public bool Crim_Hist_Visability
-        {
-            get { return BTN_Client_Criminal_History.Visible; }
-            set { BTN_Client_Criminal_History.Visible = value; }
-        }
-
-        private void BTN_Client_Criminal_History_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
