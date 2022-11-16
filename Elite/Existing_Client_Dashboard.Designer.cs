@@ -31,7 +31,6 @@ namespace Elite
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BTN_Client_New_Employment = new System.Windows.Forms.Button();
             this.BTN_Client_Income = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LblCurrentRunningTime = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@ namespace Elite
             this.BTN_Exit = new System.Windows.Forms.Button();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.BTN_Client_Public_Assistance = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,7 +51,7 @@ namespace Elite
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.panel1.Controls.Add(this.BTN_Client_New_Employment);
+            this.panel1.Controls.Add(this.BTN_Client_Public_Assistance);
             this.panel1.Controls.Add(this.BTN_Client_Income);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -59,22 +59,6 @@ namespace Elite
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(193, 762);
             this.panel1.TabIndex = 0;
-            // 
-            // BTN_Client_New_Employment
-            // 
-            this.BTN_Client_New_Employment.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_Client_New_Employment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTN_Client_New_Employment.FlatAppearance.BorderSize = 0;
-            this.BTN_Client_New_Employment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Client_New_Employment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Client_New_Employment.ForeColor = System.Drawing.Color.GhostWhite;
-            this.BTN_Client_New_Employment.Location = new System.Drawing.Point(0, 145);
-            this.BTN_Client_New_Employment.Name = "BTN_Client_New_Employment";
-            this.BTN_Client_New_Employment.Size = new System.Drawing.Size(193, 34);
-            this.BTN_Client_New_Employment.TabIndex = 14;
-            this.BTN_Client_New_Employment.Text = "New Employment";
-            this.BTN_Client_New_Employment.UseVisualStyleBackColor = false;
-            this.BTN_Client_New_Employment.Visible = false;
             // 
             // BTN_Client_Income
             // 
@@ -217,6 +201,22 @@ namespace Elite
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // BTN_Client_Public_Assistance
+            // 
+            this.BTN_Client_Public_Assistance.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_Client_Public_Assistance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_Client_Public_Assistance.FlatAppearance.BorderSize = 0;
+            this.BTN_Client_Public_Assistance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Client_Public_Assistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Client_Public_Assistance.ForeColor = System.Drawing.Color.GhostWhite;
+            this.BTN_Client_Public_Assistance.Location = new System.Drawing.Point(0, 145);
+            this.BTN_Client_Public_Assistance.Name = "BTN_Client_Public_Assistance";
+            this.BTN_Client_Public_Assistance.Size = new System.Drawing.Size(193, 34);
+            this.BTN_Client_Public_Assistance.TabIndex = 14;
+            this.BTN_Client_Public_Assistance.Text = "Public Assistance";
+            this.BTN_Client_Public_Assistance.UseVisualStyleBackColor = false;
+            this.BTN_Client_Public_Assistance.Visible = false;
+            // 
             // Existing_Client_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +256,6 @@ namespace Elite
         private System.Windows.Forms.Label LblHomeScreen;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button BTN_Client_Income;
-        private System.Windows.Forms.Button BTN_Client_New_Employment;
+        private System.Windows.Forms.Button BTN_Client_Public_Assistance;
     }
 }

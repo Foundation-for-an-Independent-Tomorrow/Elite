@@ -33,7 +33,7 @@ namespace Elite
                 rjTxt_Alimoney.Texts = incomeList.First(kvp => kvp.Key == "Alimoney").Value.ToString();
                 rjTxt_OtherIncome.Texts = incomeList.First(kvp => kvp.Key == "OtherIncome").Value.ToString();
 
-                    }
+            }
         }
     }
 }

@@ -71,15 +71,7 @@
     <Compile Include="Admin_Panel.Designer.cs">
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client\CaseInfo.cs" />
-    <Compile Include="Client\CaseNote.cs" />
     <Compile Include="Client\Client.cs" />
-    <Compile Include="Client\ClientInfo.cs" />
-    <Compile Include="Client\CriminalHistory.cs" />
-    <Compile Include="Client\Debt.cs" />
-    <Compile Include="Client\Dependants.cs" />
-    <Compile Include="Client\JobReady.cs" />
-    <Compile Include="Client\REI.cs" />
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Elite_Dashboard.cs">
       <SubType>Form</SubType>
@@ -117,12 +109,6 @@
     <Compile Include="New_Client.Designer.cs">
       <DependentUpon>New_Client.cs</DependentUpon>
     </Compile>
-    <Compile Include="Outcomes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Outcomes.designer.cs">
-      <DependentUpon>Outcomes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicAssistance.cs">
@@ -157,9 +143,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="New_Client.resx">
       <DependentUpon>New_Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Outcomes.resx">
-      <DependentUpon>Outcomes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
