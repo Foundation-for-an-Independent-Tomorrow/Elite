@@ -44,6 +44,11 @@
             this.Lbl_RentalAssist = new System.Windows.Forms.Label();
             this.Lbl_UtilityAssist = new System.Windows.Forms.Label();
             this.Lbl_FamilySupport = new System.Windows.Forms.Label();
+            this.Lbl_RentFree_Housing = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rjTogBut_RentFree = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.rjTogBut_CostFree = new RJCodeAdvance.RJControls.RJToggleButton();
             this.SuspendLayout();
             // 
             // rjTxt_UnemploymentBenefit
@@ -55,7 +60,7 @@
             this.rjTxt_UnemploymentBenefit.BorderSize = 2;
             this.rjTxt_UnemploymentBenefit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_UnemploymentBenefit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_UnemploymentBenefit.Location = new System.Drawing.Point(216, 91);
+            this.rjTxt_UnemploymentBenefit.Location = new System.Drawing.Point(220, 171);
             this.rjTxt_UnemploymentBenefit.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_UnemploymentBenefit.Multiline = false;
             this.rjTxt_UnemploymentBenefit.Name = "rjTxt_UnemploymentBenefit";
@@ -77,7 +82,7 @@
             this.rjTxt_SSI.BorderSize = 2;
             this.rjTxt_SSI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_SSI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_SSI.Location = new System.Drawing.Point(216, 130);
+            this.rjTxt_SSI.Location = new System.Drawing.Point(220, 210);
             this.rjTxt_SSI.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_SSI.Multiline = false;
             this.rjTxt_SSI.Name = "rjTxt_SSI";
@@ -99,7 +104,7 @@
             this.rjTxt_TANF.BorderSize = 2;
             this.rjTxt_TANF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_TANF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_TANF.Location = new System.Drawing.Point(216, 169);
+            this.rjTxt_TANF.Location = new System.Drawing.Point(220, 249);
             this.rjTxt_TANF.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_TANF.Multiline = false;
             this.rjTxt_TANF.Name = "rjTxt_TANF";
@@ -121,7 +126,7 @@
             this.rjTxt_SANP.BorderSize = 2;
             this.rjTxt_SANP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_SANP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_SANP.Location = new System.Drawing.Point(216, 208);
+            this.rjTxt_SANP.Location = new System.Drawing.Point(220, 288);
             this.rjTxt_SANP.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_SANP.Multiline = false;
             this.rjTxt_SANP.Name = "rjTxt_SANP";
@@ -143,7 +148,7 @@
             this.rjTxt_WIC.BorderSize = 2;
             this.rjTxt_WIC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_WIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_WIC.Location = new System.Drawing.Point(216, 247);
+            this.rjTxt_WIC.Location = new System.Drawing.Point(220, 327);
             this.rjTxt_WIC.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_WIC.Multiline = false;
             this.rjTxt_WIC.Name = "rjTxt_WIC";
@@ -165,7 +170,7 @@
             this.rjTxt_RentalAssist.BorderSize = 2;
             this.rjTxt_RentalAssist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_RentalAssist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_RentalAssist.Location = new System.Drawing.Point(216, 286);
+            this.rjTxt_RentalAssist.Location = new System.Drawing.Point(612, 171);
             this.rjTxt_RentalAssist.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_RentalAssist.Multiline = false;
             this.rjTxt_RentalAssist.Name = "rjTxt_RentalAssist";
@@ -187,7 +192,7 @@
             this.rjTxt_UtilityAssist.BorderSize = 2;
             this.rjTxt_UtilityAssist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_UtilityAssist.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_UtilityAssist.Location = new System.Drawing.Point(216, 325);
+            this.rjTxt_UtilityAssist.Location = new System.Drawing.Point(612, 210);
             this.rjTxt_UtilityAssist.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_UtilityAssist.Multiline = false;
             this.rjTxt_UtilityAssist.Name = "rjTxt_UtilityAssist";
@@ -209,7 +214,7 @@
             this.rjTxt_FamilySupport.BorderSize = 2;
             this.rjTxt_FamilySupport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_FamilySupport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_FamilySupport.Location = new System.Drawing.Point(216, 364);
+            this.rjTxt_FamilySupport.Location = new System.Drawing.Point(612, 249);
             this.rjTxt_FamilySupport.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_FamilySupport.Multiline = false;
             this.rjTxt_FamilySupport.Name = "rjTxt_FamilySupport";
@@ -226,7 +231,7 @@
             // 
             this.Lbl_UnemploymentBenefit.AutoSize = true;
             this.Lbl_UnemploymentBenefit.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_UnemploymentBenefit.Location = new System.Drawing.Point(93, 100);
+            this.Lbl_UnemploymentBenefit.Location = new System.Drawing.Point(97, 180);
             this.Lbl_UnemploymentBenefit.Name = "Lbl_UnemploymentBenefit";
             this.Lbl_UnemploymentBenefit.Size = new System.Drawing.Size(116, 13);
             this.Lbl_UnemploymentBenefit.TabIndex = 8;
@@ -236,7 +241,7 @@
             // 
             this.Lbl_SSI.AutoSize = true;
             this.Lbl_SSI.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_SSI.Location = new System.Drawing.Point(182, 139);
+            this.Lbl_SSI.Location = new System.Drawing.Point(186, 219);
             this.Lbl_SSI.Name = "Lbl_SSI";
             this.Lbl_SSI.Size = new System.Drawing.Size(27, 13);
             this.Lbl_SSI.TabIndex = 9;
@@ -246,7 +251,7 @@
             // 
             this.Lbl_TANF.AutoSize = true;
             this.Lbl_TANF.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_TANF.Location = new System.Drawing.Point(171, 178);
+            this.Lbl_TANF.Location = new System.Drawing.Point(175, 258);
             this.Lbl_TANF.Name = "Lbl_TANF";
             this.Lbl_TANF.Size = new System.Drawing.Size(38, 13);
             this.Lbl_TANF.TabIndex = 10;
@@ -256,7 +261,7 @@
             // 
             this.Lbl_SNAP.AutoSize = true;
             this.Lbl_SNAP.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_SNAP.Location = new System.Drawing.Point(170, 217);
+            this.Lbl_SNAP.Location = new System.Drawing.Point(174, 297);
             this.Lbl_SNAP.Name = "Lbl_SNAP";
             this.Lbl_SNAP.Size = new System.Drawing.Size(39, 13);
             this.Lbl_SNAP.TabIndex = 11;
@@ -266,7 +271,7 @@
             // 
             this.Lbl_WIC.AutoSize = true;
             this.Lbl_WIC.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_WIC.Location = new System.Drawing.Point(178, 256);
+            this.Lbl_WIC.Location = new System.Drawing.Point(182, 336);
             this.Lbl_WIC.Name = "Lbl_WIC";
             this.Lbl_WIC.Size = new System.Drawing.Size(31, 13);
             this.Lbl_WIC.TabIndex = 12;
@@ -276,7 +281,7 @@
             // 
             this.Lbl_RentalAssist.AutoSize = true;
             this.Lbl_RentalAssist.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_RentalAssist.Location = new System.Drawing.Point(138, 295);
+            this.Lbl_RentalAssist.Location = new System.Drawing.Point(534, 180);
             this.Lbl_RentalAssist.Name = "Lbl_RentalAssist";
             this.Lbl_RentalAssist.Size = new System.Drawing.Size(71, 13);
             this.Lbl_RentalAssist.TabIndex = 13;
@@ -286,7 +291,7 @@
             // 
             this.Lbl_UtilityAssist.AutoSize = true;
             this.Lbl_UtilityAssist.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_UtilityAssist.Location = new System.Drawing.Point(120, 334);
+            this.Lbl_UtilityAssist.Location = new System.Drawing.Point(516, 219);
             this.Lbl_UtilityAssist.Name = "Lbl_UtilityAssist";
             this.Lbl_UtilityAssist.Size = new System.Drawing.Size(89, 13);
             this.Lbl_UtilityAssist.TabIndex = 14;
@@ -296,11 +301,76 @@
             // 
             this.Lbl_FamilySupport.AutoSize = true;
             this.Lbl_FamilySupport.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_FamilySupport.Location = new System.Drawing.Point(130, 373);
+            this.Lbl_FamilySupport.Location = new System.Drawing.Point(526, 258);
             this.Lbl_FamilySupport.Name = "Lbl_FamilySupport";
             this.Lbl_FamilySupport.Size = new System.Drawing.Size(79, 13);
             this.Lbl_FamilySupport.TabIndex = 15;
             this.Lbl_FamilySupport.Text = "Family Support:";
+            // 
+            // Lbl_RentFree_Housing
+            // 
+            this.Lbl_RentFree_Housing.AutoSize = true;
+            this.Lbl_RentFree_Housing.ForeColor = System.Drawing.Color.GhostWhite;
+            this.Lbl_RentFree_Housing.Location = new System.Drawing.Point(509, 297);
+            this.Lbl_RentFree_Housing.Name = "Lbl_RentFree_Housing";
+            this.Lbl_RentFree_Housing.Size = new System.Drawing.Size(96, 13);
+            this.Lbl_RentFree_Housing.TabIndex = 17;
+            this.Lbl_RentFree_Housing.Text = "Rent-free Housing:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.GhostWhite;
+            this.label2.Location = new System.Drawing.Point(526, 336);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Cost-free Food:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.Black;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(1007, 96);
+            this.richTextBox1.TabIndex = 20;
+            this.richTextBox1.TabStop = false;
+            this.richTextBox1.Text = "Rent-Free Housing is considered to be public housing. (ex. Homeless shelter, HUD/" +
+    "VASH - Veteran Specific, etc.)\n\nCost-Free Food is considered to be food banks. (" +
+    "ex. Three Square)";
+            // 
+            // rjTogBut_RentFree
+            // 
+            this.rjTogBut_RentFree.AutoSize = true;
+            this.rjTogBut_RentFree.Location = new System.Drawing.Point(611, 293);
+            this.rjTogBut_RentFree.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjTogBut_RentFree.Name = "rjTogBut_RentFree";
+            this.rjTogBut_RentFree.OffBackColor = System.Drawing.Color.Gray;
+            this.rjTogBut_RentFree.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjTogBut_RentFree.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTogBut_RentFree.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjTogBut_RentFree.Size = new System.Drawing.Size(45, 22);
+            this.rjTogBut_RentFree.TabIndex = 21;
+            this.rjTogBut_RentFree.UseVisualStyleBackColor = true;
+            // 
+            // rjTogBut_CostFree
+            // 
+            this.rjTogBut_CostFree.AutoSize = true;
+            this.rjTogBut_CostFree.Location = new System.Drawing.Point(611, 332);
+            this.rjTogBut_CostFree.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjTogBut_CostFree.Name = "rjTogBut_CostFree";
+            this.rjTogBut_CostFree.OffBackColor = System.Drawing.Color.Gray;
+            this.rjTogBut_CostFree.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.rjTogBut_CostFree.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjTogBut_CostFree.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.rjTogBut_CostFree.Size = new System.Drawing.Size(45, 22);
+            this.rjTogBut_CostFree.TabIndex = 22;
+            this.rjTogBut_CostFree.UseVisualStyleBackColor = true;
             // 
             // PublicAssistance
             // 
@@ -308,6 +378,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1007, 594);
+            this.Controls.Add(this.rjTogBut_CostFree);
+            this.Controls.Add(this.rjTogBut_RentFree);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Lbl_RentFree_Housing);
             this.Controls.Add(this.Lbl_FamilySupport);
             this.Controls.Add(this.Lbl_UtilityAssist);
             this.Controls.Add(this.Lbl_RentalAssist);
@@ -351,5 +426,10 @@
         private System.Windows.Forms.Label Lbl_RentalAssist;
         private System.Windows.Forms.Label Lbl_UtilityAssist;
         private System.Windows.Forms.Label Lbl_FamilySupport;
+        private System.Windows.Forms.Label Lbl_RentFree_Housing;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private RJCodeAdvance.RJControls.RJToggleButton rjTogBut_RentFree;
+        private RJCodeAdvance.RJControls.RJToggleButton rjTogBut_CostFree;
     }
 }

@@ -15,8 +15,7 @@ namespace Elite
     {
         Client ex_Client;
         List<KeyValuePair<string, object>> clientInfoList;
-        List<KeyValuePair<string, object>> publicAssitanceList;
-        List<KeyValuePair<string, object>> REIList;
+        //List<KeyValuePair<string, object>> REIList;
         private Existing_Client_Dashboard ecd = null;
         public Existing_Client_Information(Form main)
         {
@@ -24,11 +23,9 @@ namespace Elite
             InitializeComponent();
             ex_Client = Client.SelectedClient;
             clientInfoList = Data.DataHandler.Get_Client_Info_By_ClientID(ex_Client.ClientID);
-            publicAssitanceList = Data.DataHandler.Get_PublicAssitance_By_ClientID(ex_Client.ClientID);
-            REIList = Data.DataHandler.Get_REI_By_ClientID(ex_Client.ClientID);
+            //REIList = Data.DataHandler.Get_REI_By_ClientID(ex_Client.ClientID);
             Fill_Client_Info();
-            Fill_PublicAssitance();
-            Fill_REI();
+            //Fill_REI();
             Lbl_ClientInfo_ClientName.Text = $"Client Information for {ex_Client.FirstName} {ex_Client.LastName}";
             CBox_CMs.Height = 34;
 
@@ -76,16 +73,37 @@ namespace Elite
             if (clientInfoList != null)
             {
                 rjTxt_Email.Texts = clientInfoList.First(kvp => kvp.Key == "Email").Value.ToString();
-                rjTxt_Age.Texts = clientInfoList.First(kvp => kvp.Key == "Age").Value.ToString();
+                const double daysPerYear = 365.24;
+                var iYears = 0;
                 rjTxt_PrimaryPhone.Texts = clientInfoList.First(kvp => kvp.Key == "PrimaryPhone").Value.ToString();
-                rjDPicker_DOB.Value = (DateTime)clientInfoList.First(kvp => kvp.Key == "DOB").Value;
+                try
+                {
+                    rjDPicker_DOB.Value = (DateTime)clientInfoList.First(kvp => kvp.Key == "DOB").Value;
+                    iYears = (int)(Get_Elapsed_Days((DateTime)clientInfoList.First(kvp => kvp.Key == "DOB").Value) / daysPerYear);
+                    rjTxt_Age.Texts = iYears.ToString();
+                }
+                catch(Exception ex)
+                {
+                    rjDPicker_DOB.Value = Get_Eighteen_Years_Ago();
+                    iYears = (int)(Get_Elapsed_Days(Get_Eighteen_Years_Ago()) / daysPerYear);
+                    rjTxt_Age.Texts = iYears.ToString();
+                }
                 rjTButton_PublicAssist.Checked = !clientInfoList.First(kvp => kvp.Key == "PublicAssist").Value.Equals(false);
                 rjTButton_Conviction.Checked = !clientInfoList.First(kvp => kvp.Key == "Conviction").Value.Equals(false);
-
             }
         }
 
-        //Josiah 6/23/2022
+        public DateTime Get_Eighteen_Years_Ago()
+        {
+            return DateTime.Now.AddDays(-6575.32);
+        }
+
+        public int Get_Elapsed_Days(DateTime pastDate)
+        {
+            return (DateTime.Now - pastDate).Days;
+        }
+
+        //Josiah 6/23/2022 - The following methods are no longer relevent.
         //public void Fill_Debt()
         //{
         //    if (debtList != null)
@@ -116,23 +134,23 @@ namespace Elite
         //    }
         //}
         
+        ////Josiah 6/27/2022
+        //public void Fill_PublicAssitance()
+        //{
+        //    if (publicAssitanceList != null)
+        //    {
+
+        //    }
+        //}
+
         //Josiah 6/27/2022
-        public void Fill_PublicAssitance()
-        {
-            if (publicAssitanceList != null)
-            {
+        //public void Fill_REI()
+        //{
+        //    if (REIList != null)
+        //    {
 
-            }
-        }
-
-        //Josiah 6/27/2022
-        public void Fill_REI()
-        {
-            if (REIList != null)
-            {
-
-            }
-        }
+        //    }
+        //}
 
         #region Button Click Events
 
@@ -173,24 +191,14 @@ namespace Elite
             c.Close();
         }
 
-        //public void SetStateComboBox()
-        //{
-        //    rjCBox_State.Items.AddRange(new object[] {
-        //        "NV", "AK", "AL", "AZ", "AR", "CA", "CO", "CT", "DE", "FL",
-        //        "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
-        //        "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NH", "NJ", 
-        //        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
-        //        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
-        //    });
-        //}
-
-        private void rjTButton_Conviction_CheckStateChanged(object sender, EventArgs e)
-        {
-        }
-
         private void Existing_Client_Information_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void rjTButton_PublicAssist_CheckedChanged(object sender, EventArgs e)
+        {
+            this.ecd.Public_Assistance_Visability = rjTButton_PublicAssist.Checked;
         }
     }
 }

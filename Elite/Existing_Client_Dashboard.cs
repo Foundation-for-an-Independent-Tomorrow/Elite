@@ -21,6 +21,7 @@ namespace Elite
             eci_vrb.FormBorderStyle = FormBorderStyle.None;
             this.PnlFormLoader.Controls.Add(eci_vrb);
             eci_vrb.Show();
+            BTN_Client_Info.Visible = false;
         }
 
         #region Movable Window
@@ -70,7 +71,64 @@ namespace Elite
 
         private void BTN_Minimize_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Minimized;
+        }
 
+        public bool Public_Assistance_Visability
+        {
+            get { return BTN_Client_Public_Assistance.Visible; }
+            set { BTN_Client_Public_Assistance.Visible = value; }
+        }
+
+        private void BTN_Client_Public_Assistance_Click(object sender, EventArgs e)
+        {
+            this.PnlFormLoader.Controls.Clear();
+            LblHomeScreen.Text = "Public Assistance";
+            PublicAssistance publicAssist_vrb = new(this)
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            this.PnlFormLoader.Controls.Add(publicAssist_vrb);
+            publicAssist_vrb.Show();
+            BTN_Client_Info.Visible = true;
+            BTN_Client_Public_Assistance.Visible = false;
+        }
+
+        private void BTN_Client_Income_Click(object sender, EventArgs e)
+        {
+            this.PnlFormLoader.Controls.Clear();
+            LblHomeScreen.Text = "Client Income";
+            Income income_vrb = new(this)
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            this.PnlFormLoader.Controls.Add((income_vrb));
+            income_vrb.Show();
+            BTN_Client_Info.Visible = true;
+            BTN_Client_Income.Visible = false;
+        }
+
+        private void BTN_Client_Info_Click(object sender, EventArgs e)
+        {
+            this.PnlFormLoader.Controls.Clear();
+            LblHomeScreen.Text = "Client Information";
+            Existing_Client_Information eci_vrb = new(this)
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+                FormBorderStyle = FormBorderStyle.None
+            };
+            this.PnlFormLoader.Controls.Add(eci_vrb);
+            eci_vrb.Show();
+            BTN_Client_Income.Visible = true;
+            BTN_Client_Info.Visible = false;
         }
     }
 }

@@ -55,6 +55,8 @@ namespace Elite
             this.Lbl_Conviction = new System.Windows.Forms.Label();
             this.CBox_CMs = new System.Windows.Forms.ComboBox();
             this.Lbl_CM_Assigned = new System.Windows.Forms.Label();
+            this.Lbl_DOB_Warning = new System.Windows.Forms.Label();
+            this.Lbl_DOB_Tooltip = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rjDPicker
@@ -250,9 +252,10 @@ namespace Elite
             this.rjTxt_Age.BorderFocusColor = System.Drawing.Color.HotPink;
             this.rjTxt_Age.BorderRadius = 0;
             this.rjTxt_Age.BorderSize = 2;
+            this.rjTxt_Age.Enabled = false;
             this.rjTxt_Age.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_Age.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_Age.Location = new System.Drawing.Point(666, 219);
+            this.rjTxt_Age.Location = new System.Drawing.Point(666, 264);
             this.rjTxt_Age.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_Age.Multiline = false;
             this.rjTxt_Age.Name = "rjTxt_Age";
@@ -271,7 +274,7 @@ namespace Elite
             this.Lbl_Age.AutoSize = true;
             this.Lbl_Age.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_Age.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_Age.Location = new System.Drawing.Point(520, 226);
+            this.Lbl_Age.Location = new System.Drawing.Point(520, 271);
             this.Lbl_Age.Name = "Lbl_Age";
             this.Lbl_Age.Size = new System.Drawing.Size(50, 24);
             this.Lbl_Age.TabIndex = 108;
@@ -283,7 +286,7 @@ namespace Elite
             this.rjDPicker_DOB.BorderSize = 0;
             this.rjDPicker_DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.rjDPicker_DOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.rjDPicker_DOB.Location = new System.Drawing.Point(666, 174);
+            this.rjDPicker_DOB.Location = new System.Drawing.Point(666, 219);
             this.rjDPicker_DOB.MinimumSize = new System.Drawing.Size(4, 35);
             this.rjDPicker_DOB.Name = "rjDPicker_DOB";
             this.rjDPicker_DOB.Size = new System.Drawing.Size(250, 35);
@@ -318,7 +321,7 @@ namespace Elite
             this.Lbl_DOB.AutoSize = true;
             this.Lbl_DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_DOB.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_DOB.Location = new System.Drawing.Point(520, 185);
+            this.Lbl_DOB.Location = new System.Drawing.Point(520, 230);
             this.Lbl_DOB.Name = "Lbl_DOB";
             this.Lbl_DOB.Size = new System.Drawing.Size(55, 24);
             this.Lbl_DOB.TabIndex = 111;
@@ -333,7 +336,7 @@ namespace Elite
             this.rjTxt_PrimaryPhone.BorderSize = 2;
             this.rjTxt_PrimaryPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTxt_PrimaryPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTxt_PrimaryPhone.Location = new System.Drawing.Point(666, 264);
+            this.rjTxt_PrimaryPhone.Location = new System.Drawing.Point(666, 309);
             this.rjTxt_PrimaryPhone.Margin = new System.Windows.Forms.Padding(4);
             this.rjTxt_PrimaryPhone.Multiline = false;
             this.rjTxt_PrimaryPhone.Name = "rjTxt_PrimaryPhone";
@@ -351,7 +354,7 @@ namespace Elite
             this.Lbl_PrimaryPhone.AutoSize = true;
             this.Lbl_PrimaryPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_PrimaryPhone.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_PrimaryPhone.Location = new System.Drawing.Point(520, 273);
+            this.Lbl_PrimaryPhone.Location = new System.Drawing.Point(520, 318);
             this.Lbl_PrimaryPhone.Name = "Lbl_PrimaryPhone";
             this.Lbl_PrimaryPhone.Size = new System.Drawing.Size(139, 24);
             this.Lbl_PrimaryPhone.TabIndex = 113;
@@ -361,7 +364,7 @@ namespace Elite
             // 
             this.rjTButton_PublicAssist.AutoSize = true;
             this.rjTButton_PublicAssist.ForeColor = System.Drawing.Color.GhostWhite;
-            this.rjTButton_PublicAssist.Location = new System.Drawing.Point(714, 357);
+            this.rjTButton_PublicAssist.Location = new System.Drawing.Point(714, 402);
             this.rjTButton_PublicAssist.MinimumSize = new System.Drawing.Size(60, 27);
             this.rjTButton_PublicAssist.Name = "rjTButton_PublicAssist";
             this.rjTButton_PublicAssist.OffBackColor = System.Drawing.Color.Gray;
@@ -371,13 +374,14 @@ namespace Elite
             this.rjTButton_PublicAssist.Size = new System.Drawing.Size(60, 27);
             this.rjTButton_PublicAssist.TabIndex = 143;
             this.rjTButton_PublicAssist.UseVisualStyleBackColor = true;
+            this.rjTButton_PublicAssist.CheckedChanged += new System.EventHandler(this.rjTButton_PublicAssist_CheckedChanged);
             // 
             // Lbl_PublicAssist
             // 
             this.Lbl_PublicAssist.AutoSize = true;
             this.Lbl_PublicAssist.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_PublicAssist.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Lbl_PublicAssist.Location = new System.Drawing.Point(520, 360);
+            this.Lbl_PublicAssist.Location = new System.Drawing.Point(520, 405);
             this.Lbl_PublicAssist.Name = "Lbl_PublicAssist";
             this.Lbl_PublicAssist.Size = new System.Drawing.Size(120, 24);
             this.Lbl_PublicAssist.TabIndex = 144;
@@ -387,7 +391,7 @@ namespace Elite
             // 
             this.rjTButton_Conviction.AutoSize = true;
             this.rjTButton_Conviction.ForeColor = System.Drawing.Color.GhostWhite;
-            this.rjTButton_Conviction.Location = new System.Drawing.Point(714, 311);
+            this.rjTButton_Conviction.Location = new System.Drawing.Point(714, 356);
             this.rjTButton_Conviction.MinimumSize = new System.Drawing.Size(60, 27);
             this.rjTButton_Conviction.Name = "rjTButton_Conviction";
             this.rjTButton_Conviction.OffBackColor = System.Drawing.Color.Gray;
@@ -397,13 +401,12 @@ namespace Elite
             this.rjTButton_Conviction.Size = new System.Drawing.Size(60, 27);
             this.rjTButton_Conviction.TabIndex = 153;
             this.rjTButton_Conviction.UseVisualStyleBackColor = true;
-            this.rjTButton_Conviction.CheckStateChanged += new System.EventHandler(this.rjTButton_Conviction_CheckStateChanged);
             // 
             // Lbl_Conviction
             // 
             this.Lbl_Conviction.AutoSize = true;
             this.Lbl_Conviction.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_Conviction.Location = new System.Drawing.Point(520, 314);
+            this.Lbl_Conviction.Location = new System.Drawing.Point(520, 359);
             this.Lbl_Conviction.Name = "Lbl_Conviction";
             this.Lbl_Conviction.Size = new System.Drawing.Size(103, 24);
             this.Lbl_Conviction.TabIndex = 154;
@@ -428,6 +431,24 @@ namespace Elite
             this.Lbl_CM_Assigned.TabIndex = 155;
             this.Lbl_CM_Assigned.Text = "Case Manager:";
             // 
+            // Lbl_DOB_Warning
+            // 
+            this.Lbl_DOB_Warning.AutoSize = true;
+            this.Lbl_DOB_Warning.Location = new System.Drawing.Point(538, 174);
+            this.Lbl_DOB_Warning.Name = "Lbl_DOB_Warning";
+            this.Lbl_DOB_Warning.Size = new System.Drawing.Size(348, 17);
+            this.Lbl_DOB_Warning.TabIndex = 156;
+            this.Lbl_DOB_Warning.Text = "***Make sure the DOB is correct before Proceeding!***";
+            // 
+            // Lbl_DOB_Tooltip
+            // 
+            this.Lbl_DOB_Tooltip.AutoSize = true;
+            this.Lbl_DOB_Tooltip.Location = new System.Drawing.Point(538, 192);
+            this.Lbl_DOB_Tooltip.Name = "Lbl_DOB_Tooltip";
+            this.Lbl_DOB_Tooltip.Size = new System.Drawing.Size(356, 17);
+            this.Lbl_DOB_Tooltip.TabIndex = 157;
+            this.Lbl_DOB_Tooltip.Text = "***If no DOB was entered, it defaults to 18 years ago.***";
+            // 
             // Existing_Client_Information
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -435,6 +456,8 @@ namespace Elite
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1023, 633);
+            this.Controls.Add(this.Lbl_DOB_Tooltip);
+            this.Controls.Add(this.Lbl_DOB_Warning);
             this.Controls.Add(this.Lbl_CM_Assigned);
             this.Controls.Add(this.Lbl_Conviction);
             this.Controls.Add(this.rjTButton_Conviction);
@@ -506,5 +529,7 @@ namespace Elite
         private System.Windows.Forms.Label Lbl_Conviction;
         private System.Windows.Forms.ComboBox CBox_CMs;
         private System.Windows.Forms.Label Lbl_CM_Assigned;
+        private System.Windows.Forms.Label Lbl_DOB_Warning;
+        private System.Windows.Forms.Label Lbl_DOB_Tooltip;
     }
 }
