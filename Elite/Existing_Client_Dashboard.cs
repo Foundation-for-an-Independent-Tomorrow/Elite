@@ -72,5 +72,11 @@ namespace Elite
         {
 
         }
+
+        public bool Public_Assistance_Visability
+        {
+            get { return BTN_Client_Public_Assistance.Visible; }
+            set { BTN_Client_Public_Assistance.Visible = value; }
+        }
     }
 }

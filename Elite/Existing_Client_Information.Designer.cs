@@ -371,6 +371,7 @@ namespace Elite
             this.rjTButton_PublicAssist.Size = new System.Drawing.Size(60, 27);
             this.rjTButton_PublicAssist.TabIndex = 143;
             this.rjTButton_PublicAssist.UseVisualStyleBackColor = true;
+            this.rjTButton_PublicAssist.CheckedChanged += new System.EventHandler(this.rjTButton_PublicAssist_CheckedChanged);
             // 
             // Lbl_PublicAssist
             // 
@@ -397,7 +398,6 @@ namespace Elite
             this.rjTButton_Conviction.Size = new System.Drawing.Size(60, 27);
             this.rjTButton_Conviction.TabIndex = 153;
             this.rjTButton_Conviction.UseVisualStyleBackColor = true;
-            this.rjTButton_Conviction.CheckStateChanged += new System.EventHandler(this.rjTButton_Conviction_CheckStateChanged);
             // 
             // Lbl_Conviction
             // 

@@ -32,6 +32,8 @@ namespace Elite
                 rjTxt_ChildSupportIn.Texts = incomeList.First(kvp => kvp.Key == "ChildSupportIn").Value.ToString();
                 rjTxt_Alimoney.Texts = incomeList.First(kvp => kvp.Key == "Alimoney").Value.ToString();
                 rjTxt_OtherIncome.Texts = incomeList.First(kvp => kvp.Key == "OtherIncome").Value.ToString();
+                rjTButton_EmployedthroughFit.Checked = !incomeList.First(kvp => kvp.Key == "EmployedThroughFit").Value.Equals(false);
+                Rj_Hourly_Salary_Toggle.Checked = !incomeList.First(kvp => kvp.Key == "PaidHourly").Value.Equals(false);
 
             }
         }
