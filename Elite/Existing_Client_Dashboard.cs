@@ -130,5 +130,11 @@ namespace Elite
             BTN_Client_Income.Visible = true;
             BTN_Client_Info.Visible = false;
         }
+
+        public bool Public_Assistance_Visability
+        {
+            get { return BTN_Client_Public_Assistance.Visible; }
+            set { BTN_Client_Public_Assistance.Visible = value; }
+        }
     }
 }
