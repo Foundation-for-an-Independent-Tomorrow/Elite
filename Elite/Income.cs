@@ -14,8 +14,10 @@ namespace Elite
     {
         Client ex_Client;
         List<KeyValuePair<string, object>> incomeList;
-        public Income()
+        private Existing_Client_Dashboard ecd = null;
+        public Income(Form main)
         {
+            ecd = main as Existing_Client_Dashboard;
             InitializeComponent();
             ex_Client = Client.SelectedClient;
             incomeList = Data.DataHandler.Get_Income_By_ClientID(ex_Client.ClientID);

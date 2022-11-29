@@ -94,6 +94,7 @@ namespace Elite
             this.PnlFormLoader.Controls.Add(publicAssist_vrb);
             publicAssist_vrb.Show();
             BTN_Client_Info.Visible = true;
+            BTN_Client_Income.Visible = true;
             BTN_Client_Public_Assistance.Visible = false;
         }
 

@@ -550,17 +550,18 @@ namespace Elite.Data
                 if (rdr.HasRows)
                 {
                     rdr.Read();
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("UnemploymentBenefit", rdr[0]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("SSI", rdr[1]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("TANF", rdr[2]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("SNAP", rdr[3]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("WIC", rdr[4]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentalAssist", rdr[5]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("UtilityAssist", rdr[6]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("FamilySupport", rdr[7]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("ClientID", rdr[8]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentFreeHousing", rdr[9]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("CostFreeFood", rdr[10]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("PublicAssistID", rdr[0]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("UnemploymentBenefit", rdr[1]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("SSI", rdr[2]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("TANF", rdr[3]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("SNAP", rdr[4]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("WIC", rdr[5]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentalAssist", rdr[6]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("UtilityAssist", rdr[7]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("FamilySupport", rdr[8]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentFreeHousing", rdr[10]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("CostFreeFood", rdr[11]));
                 }
                 else
                 {
