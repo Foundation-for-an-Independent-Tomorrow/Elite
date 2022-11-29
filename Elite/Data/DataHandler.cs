@@ -121,7 +121,271 @@ namespace Elite.Data
                 c.Close();
             }
             return clientInfoList;
+        }        
+
+        //Josiah 6/23/2022
+        public static List<KeyValuePair<string, object>> Get_Income_By_ClientID(int clientID)
+        {
+            var incomeList = new List<KeyValuePair<string, object>>();
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd_Income = new SqlCommand("sp_Get_Income_By_ClientID", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+            SqlDataReader rdr = cmd_Income.ExecuteReader();
+
+            try
+            {
+                if (rdr.HasRows)
+                {
+                    rdr.Read();
+                    incomeList.Add(new KeyValuePair<string, object>("IncomeID", rdr[0]));
+                    incomeList.Add(new KeyValuePair<string, object>("HouseholdIncome", rdr[1]));
+                    incomeList.Add(new KeyValuePair<string, object>("EmploymentIncome", rdr[2]));
+                    incomeList.Add(new KeyValuePair<string, object>("SSDI", rdr[3]));
+                    incomeList.Add(new KeyValuePair<string, object>("Pension", rdr[4]));
+                    incomeList.Add(new KeyValuePair<string, object>("ChildSupportIn", rdr[5]));
+                    incomeList.Add(new KeyValuePair<string, object>("Alimoney", rdr[6]));
+                    incomeList.Add(new KeyValuePair<string, object>("OtherIncome", rdr[7]));
+                    incomeList.Add(new KeyValuePair<string, object>("EmployedThroughFit", rdr[8]));
+                    incomeList.Add(new KeyValuePair<string, object>("PaidHourly", rdr[9]));
+                    incomeList.Add(new KeyValuePair<string, object>("ClientID", rdr[10]));
+
+                }
+                else
+                {
+                    //MessageBox.Show("No Income found with the ClientID: " + clientID, "Please try again");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                c.Close();
+            }
+            return incomeList;
+
+        }        
+
+        //Josiah 6/27/2022
+        public static List<KeyValuePair<string, object>> Get_PublicAssitance_By_ClientID(int clientID)
+        {
+            var publicAssitanceList = new List<KeyValuePair<string, object>>();
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd_PublicAssist = new SqlCommand("sp_Get_PublicAssistance_By_ClientID", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd_PublicAssist.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+            SqlDataReader rdr = cmd_PublicAssist.ExecuteReader();
+
+            try
+            {
+                if (rdr.HasRows)
+                {
+                    rdr.Read();
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("PublicAssistID", rdr[0]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("UnemploymentBenefit", rdr[1]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("SSI", rdr[2]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("TANF", rdr[3]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("SNAP", rdr[4]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("WIC", rdr[5]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentalAssist", rdr[6]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("UtilityAssist", rdr[7]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("FamilySupport", rdr[8]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentFreeHousing", rdr[10]));
+                    publicAssitanceList.Add(new KeyValuePair<string, object>("CostFreeFood", rdr[11]));
+                }
+                else
+                {
+                    //MessageBox.Show("No Public Assitance found with the ClientID: " + clientID, "Please try again");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                c.Close();
+            }
+            return publicAssitanceList;
+
         }
+
+        #region Excluded Methods
+        //Josiah 6/27/2022- The following methods are no longer relevent to this project as the forms that used them have been excluded.
+        //public static List<KeyValuePair<string, object>> Get_JobReady_By_ClientID(int clientID)
+        //{
+        //    var jobReadyList = new List<KeyValuePair<string, object>>();
+        //    if (c.State.ToString() == "Open")
+        //    {
+        //        c.Close();
+        //    }
+        //    c.Open();
+        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_JobReady_By_ClientID", c)
+        //    {
+        //        CommandType = CommandType.StoredProcedure
+        //    };
+        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
+
+        //    try
+        //    {
+        //        if (rdr.HasRows)
+        //        {
+        //            rdr.Read();
+        //            jobReadyList.Add(new KeyValuePair<string, object>("StartDate", rdr[0]));
+        //            jobReadyList.Add(new KeyValuePair<string, object>("EndDate", rdr[1]));
+        //            jobReadyList.Add(new KeyValuePair<string, object>("ClientID", rdr[2]));
+
+        //        }
+        //        else
+        //        {
+        //            //MessageBox.Show("No Job Ready found with the ClientID: " + clientID, "Please try again");
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        c.Close();
+        //    }
+        //    return jobReadyList;
+
+        //}
+
+        ////Josiah 6/27/2022
+        //public static List<KeyValuePair<string, object>> Get_NewEmployment_By_ClientID(int clientID)
+        //{
+        //    var newEmploymentList = new List<KeyValuePair<string, object>>();
+        //    if (c.State.ToString() == "Open")
+        //    {
+        //        c.Close();
+        //    }
+        //    c.Open();
+        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_NewEmployment_By_ClientID", c)
+        //    {
+        //        CommandType = CommandType.StoredProcedure
+        //    };
+        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
+
+        //    try
+        //    {
+        //        if (rdr.HasRows)
+        //        {
+        //            rdr.Read();
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("BuinessName", rdr[0]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("Address1", rdr[1]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("Address2", rdr[2]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("City", rdr[3]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("State", rdr[4]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("Zip", rdr[5]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("BusinessPhone", rdr[6]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("StartDate", rdr[7]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("EndDate", rdr[8]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("HourlyWage", rdr[9]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("HoursPerWeek", rdr[10]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("DescriptionOfDuties", rdr[11]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("ReasonForLeavingPrevJob", rdr[12]));
+        //            newEmploymentList.Add(new KeyValuePair<string, object>("ClientID", rdr[13]));
+        //        }
+        //        else
+        //        {
+        //            //MessageBox.Show("No New Employment found with the ClientID: " + clientID, "Please try again");
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        c.Close();
+        //    }
+        //    return newEmploymentList;
+
+        //}
+
+        ////Josiah 6/27/2022
+        //public static List<KeyValuePair<string, object>> Get_Outcomes_By_ClientID(int clientID)
+        //{
+        //    var outcomesList = new List<KeyValuePair<string, object>>();
+        //    if (c.State.ToString() == "Open")
+        //    {
+        //        c.Close();
+        //    }
+        //    c.Open();
+        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_Outcomes_By_ClientID", c)
+        //    {
+        //        CommandType = CommandType.StoredProcedure
+        //    };
+        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
+
+        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
+
+        //    try
+        //    {
+        //        if (rdr.HasRows)
+        //        {
+        //            rdr.Read();
+        //            outcomesList.Add(new KeyValuePair<string, object>("EmployerSector", rdr[0]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("JobTitle", rdr[1]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("EmployedthroguhtFit", rdr[2]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("HireDate", rdr[3]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("StartingSalary", rdr[4]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("EligibleForHealthInsurance", rdr[5]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("EligibleForOtherBenefits", rdr[6]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("ParticipantSatisfied", rdr[7]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("Enrolled", rdr[8]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
+        //            outcomesList.Add(new KeyValuePair<string, object>("CredentialAchieved", rdr[10]));
+        //        }
+        //        else
+        //        {
+        //            //MessageBox.Show("No Outcomes found with the ClientID: " + clientID, "Please try again");
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        c.Close();
+        //    }
+        //    return outcomesList;
+
+        //}
 
         //Josiah 6/23/2022 - The following methods are no longer relevent to this project as the forms that used them have been excluded.
         //public static List<KeyValuePair<string, object>> Get_Criminal_History_By_ClientID(int clientID)
@@ -320,268 +584,6 @@ namespace Elite.Data
 
         //}
 
-        //Josiah 6/23/2022
-        public static List<KeyValuePair<string, object>> Get_Income_By_ClientID(int clientID)
-        {
-            var incomeList = new List<KeyValuePair<string, object>>();
-            if (c.State.ToString() == "Open")
-            {
-                c.Close();
-            }
-            c.Open();
-            SqlCommand cmd_Income = new SqlCommand("sp_Get_Income_By_ClientID", c)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-            SqlDataReader rdr = cmd_Income.ExecuteReader();
-
-            try
-            {
-                if (rdr.HasRows)
-                {
-                    rdr.Read();
-                    incomeList.Add(new KeyValuePair<string, object>("HouseholdIncome", rdr[0]));
-                    incomeList.Add(new KeyValuePair<string, object>("EmploymentIncome", rdr[1]));
-                    incomeList.Add(new KeyValuePair<string, object>("SSDI", rdr[2]));
-                    incomeList.Add(new KeyValuePair<string, object>("Pension", rdr[3]));
-                    incomeList.Add(new KeyValuePair<string, object>("ChildSupportIn", rdr[4]));
-                    incomeList.Add(new KeyValuePair<string, object>("Alimoney", rdr[5]));
-                    incomeList.Add(new KeyValuePair<string, object>("OtherIncome", rdr[6]));
-                    incomeList.Add(new KeyValuePair<string, object>("EmployedThroughFit", rdr[7]));
-                    incomeList.Add(new KeyValuePair<string, object>("PaidHourly", rdr[8]));
-                    incomeList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
-
-                }
-                else
-                {
-                    //MessageBox.Show("No Income found with the ClientID: " + clientID, "Please try again");
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            finally
-            {
-                c.Close();
-            }
-            return incomeList;
-
-        }
-
-        //Josiah 6/27/2022- The following methods are no longer relevent to this project as the forms that used them have been excluded.
-        //public static List<KeyValuePair<string, object>> Get_JobReady_By_ClientID(int clientID)
-        //{
-        //    var jobReadyList = new List<KeyValuePair<string, object>>();
-        //    if (c.State.ToString() == "Open")
-        //    {
-        //        c.Close();
-        //    }
-        //    c.Open();
-        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_JobReady_By_ClientID", c)
-        //    {
-        //        CommandType = CommandType.StoredProcedure
-        //    };
-        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
-
-        //    try
-        //    {
-        //        if (rdr.HasRows)
-        //        {
-        //            rdr.Read();
-        //            jobReadyList.Add(new KeyValuePair<string, object>("StartDate", rdr[0]));
-        //            jobReadyList.Add(new KeyValuePair<string, object>("EndDate", rdr[1]));
-        //            jobReadyList.Add(new KeyValuePair<string, object>("ClientID", rdr[2]));
-
-        //        }
-        //        else
-        //        {
-        //            //MessageBox.Show("No Job Ready found with the ClientID: " + clientID, "Please try again");
-        //            return null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        c.Close();
-        //    }
-        //    return jobReadyList;
-
-        //}
-
-        ////Josiah 6/27/2022
-        //public static List<KeyValuePair<string, object>> Get_NewEmployment_By_ClientID(int clientID)
-        //{
-        //    var newEmploymentList = new List<KeyValuePair<string, object>>();
-        //    if (c.State.ToString() == "Open")
-        //    {
-        //        c.Close();
-        //    }
-        //    c.Open();
-        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_NewEmployment_By_ClientID", c)
-        //    {
-        //        CommandType = CommandType.StoredProcedure
-        //    };
-        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
-
-        //    try
-        //    {
-        //        if (rdr.HasRows)
-        //        {
-        //            rdr.Read();
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("BuinessName", rdr[0]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("Address1", rdr[1]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("Address2", rdr[2]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("City", rdr[3]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("State", rdr[4]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("Zip", rdr[5]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("BusinessPhone", rdr[6]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("StartDate", rdr[7]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("EndDate", rdr[8]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("HourlyWage", rdr[9]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("HoursPerWeek", rdr[10]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("DescriptionOfDuties", rdr[11]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("ReasonForLeavingPrevJob", rdr[12]));
-        //            newEmploymentList.Add(new KeyValuePair<string, object>("ClientID", rdr[13]));
-        //        }
-        //        else
-        //        {
-        //            //MessageBox.Show("No New Employment found with the ClientID: " + clientID, "Please try again");
-        //            return null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        c.Close();
-        //    }
-        //    return newEmploymentList;
-
-        //}
-
-        ////Josiah 6/27/2022
-        //public static List<KeyValuePair<string, object>> Get_Outcomes_By_ClientID(int clientID)
-        //{
-        //    var outcomesList = new List<KeyValuePair<string, object>>();
-        //    if (c.State.ToString() == "Open")
-        //    {
-        //        c.Close();
-        //    }
-        //    c.Open();
-        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_Outcomes_By_ClientID", c)
-        //    {
-        //        CommandType = CommandType.StoredProcedure
-        //    };
-        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
-
-        //    try
-        //    {
-        //        if (rdr.HasRows)
-        //        {
-        //            rdr.Read();
-        //            outcomesList.Add(new KeyValuePair<string, object>("EmployerSector", rdr[0]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("JobTitle", rdr[1]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("EmployedthroguhtFit", rdr[2]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("HireDate", rdr[3]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("StartingSalary", rdr[4]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("EligibleForHealthInsurance", rdr[5]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("EligibleForOtherBenefits", rdr[6]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("ParticipantSatisfied", rdr[7]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("Enrolled", rdr[8]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
-        //            outcomesList.Add(new KeyValuePair<string, object>("CredentialAchieved", rdr[10]));
-        //        }
-        //        else
-        //        {
-        //            //MessageBox.Show("No Outcomes found with the ClientID: " + clientID, "Please try again");
-        //            return null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        c.Close();
-        //    }
-        //    return outcomesList;
-
-        //}
-
-        //Josiah 6/27/2022
-        public static List<KeyValuePair<string, object>> Get_PublicAssitance_By_ClientID(int clientID)
-        {
-            var publicAssitanceList = new List<KeyValuePair<string, object>>();
-            if (c.State.ToString() == "Open")
-            {
-                c.Close();
-            }
-            c.Open();
-            SqlCommand cmd_PublicAssist = new SqlCommand("sp_Get_PublicAssistance_By_ClientID", c)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd_PublicAssist.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-            SqlDataReader rdr = cmd_PublicAssist.ExecuteReader();
-
-            try
-            {
-                if (rdr.HasRows)
-                {
-                    rdr.Read();
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("PublicAssistID", rdr[0]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("UnemploymentBenefit", rdr[1]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("SSI", rdr[2]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("TANF", rdr[3]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("SNAP", rdr[4]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("WIC", rdr[5]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentalAssist", rdr[6]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("UtilityAssist", rdr[7]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("FamilySupport", rdr[8]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("ClientID", rdr[9]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("RentFreeHousing", rdr[10]));
-                    publicAssitanceList.Add(new KeyValuePair<string, object>("CostFreeFood", rdr[11]));
-                }
-                else
-                {
-                    //MessageBox.Show("No Public Assitance found with the ClientID: " + clientID, "Please try again");
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            finally
-            {
-                c.Close();
-            }
-            return publicAssitanceList;
-
-        }
-
         //Josiah 6/27/2022 - The following methods are no longer relevent to this project as the forms that used them have been excluded.
         //public static List<KeyValuePair<string, object>> Get_REI_By_ClientID(int clientID)
         //{
@@ -627,7 +629,7 @@ namespace Elite.Data
         //    return REIList;
 
         //}
-
+        #endregion
 
         #endregion
 
