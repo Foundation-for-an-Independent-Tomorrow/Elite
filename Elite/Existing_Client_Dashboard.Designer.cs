@@ -31,6 +31,7 @@ namespace Elite
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BTN_Client_Income = new System.Windows.Forms.Button();
             this.BTN_Client_Public_Assistance = new System.Windows.Forms.Button();
             this.BTN_Client_Info = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -43,7 +44,6 @@ namespace Elite
             this.BTN_Exit = new System.Windows.Forms.Button();
             this.PnlFormLoader = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.BTN_Client_Income = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,6 +61,22 @@ namespace Elite
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(193, 762);
             this.panel1.TabIndex = 0;
+            // 
+            // BTN_Client_Income
+            // 
+            this.BTN_Client_Income.BackColor = System.Drawing.Color.SlateBlue;
+            this.BTN_Client_Income.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BTN_Client_Income.FlatAppearance.BorderSize = 0;
+            this.BTN_Client_Income.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Client_Income.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Client_Income.ForeColor = System.Drawing.Color.GhostWhite;
+            this.BTN_Client_Income.Location = new System.Drawing.Point(0, 179);
+            this.BTN_Client_Income.Name = "BTN_Client_Income";
+            this.BTN_Client_Income.Size = new System.Drawing.Size(193, 34);
+            this.BTN_Client_Income.TabIndex = 15;
+            this.BTN_Client_Income.Text = "Income";
+            this.BTN_Client_Income.UseVisualStyleBackColor = false;
+            this.BTN_Client_Income.Click += new System.EventHandler(this.BTN_Client_Income_Click);
             // 
             // BTN_Client_Public_Assistance
             // 
@@ -116,7 +132,7 @@ namespace Elite
             this.LblCurrentRunningTime.AutoSize = true;
             this.LblCurrentRunningTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCurrentRunningTime.ForeColor = System.Drawing.Color.GhostWhite;
-            this.LblCurrentRunningTime.Location = new System.Drawing.Point(12, 71);
+            this.LblCurrentRunningTime.Location = new System.Drawing.Point(10, 80);
             this.LblCurrentRunningTime.Name = "LblCurrentRunningTime";
             this.LblCurrentRunningTime.Size = new System.Drawing.Size(46, 17);
             this.LblCurrentRunningTime.TabIndex = 2;
@@ -220,22 +236,6 @@ namespace Elite
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // BTN_Client_Income
-            // 
-            this.BTN_Client_Income.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_Client_Income.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTN_Client_Income.FlatAppearance.BorderSize = 0;
-            this.BTN_Client_Income.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Client_Income.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTN_Client_Income.ForeColor = System.Drawing.Color.GhostWhite;
-            this.BTN_Client_Income.Location = new System.Drawing.Point(0, 179);
-            this.BTN_Client_Income.Name = "BTN_Client_Income";
-            this.BTN_Client_Income.Size = new System.Drawing.Size(193, 34);
-            this.BTN_Client_Income.TabIndex = 15;
-            this.BTN_Client_Income.Text = "Income";
-            this.BTN_Client_Income.UseVisualStyleBackColor = false;
-            this.BTN_Client_Income.Click += new System.EventHandler(this.BTN_Client_Income_Click);
             // 
             // Existing_Client_Dashboard
             // 

@@ -90,7 +90,7 @@ namespace Elite
             this.BTN_New_Client.Dock = System.Windows.Forms.DockStyle.Top;
             this.BTN_New_Client.FlatAppearance.BorderSize = 0;
             this.BTN_New_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_New_Client.Location = new System.Drawing.Point(0, 145);
+            this.BTN_New_Client.Location = new System.Drawing.Point(0, 179);
             this.BTN_New_Client.Name = "BTN_New_Client";
             this.BTN_New_Client.Size = new System.Drawing.Size(193, 34);
             this.BTN_New_Client.TabIndex = 10;
@@ -101,10 +101,10 @@ namespace Elite
             // BTN_Admin
             // 
             this.BTN_Admin.BackColor = System.Drawing.Color.SlateBlue;
-            this.BTN_Admin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BTN_Admin.Dock = System.Windows.Forms.DockStyle.Top;
             this.BTN_Admin.FlatAppearance.BorderSize = 0;
             this.BTN_Admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTN_Admin.Location = new System.Drawing.Point(0, 694);
+            this.BTN_Admin.Location = new System.Drawing.Point(0, 145);
             this.BTN_Admin.Name = "BTN_Admin";
             this.BTN_Admin.Size = new System.Drawing.Size(193, 34);
             this.BTN_Admin.TabIndex = 9;
@@ -162,7 +162,7 @@ namespace Elite
             this.LblCurrentRunningTime.AutoSize = true;
             this.LblCurrentRunningTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCurrentRunningTime.ForeColor = System.Drawing.Color.GhostWhite;
-            this.LblCurrentRunningTime.Location = new System.Drawing.Point(12, 71);
+            this.LblCurrentRunningTime.Location = new System.Drawing.Point(12, 79);
             this.LblCurrentRunningTime.Name = "LblCurrentRunningTime";
             this.LblCurrentRunningTime.Size = new System.Drawing.Size(46, 17);
             this.LblCurrentRunningTime.TabIndex = 2;

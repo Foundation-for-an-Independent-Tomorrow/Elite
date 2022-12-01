@@ -63,7 +63,7 @@ namespace Elite
         private void timer1_Tick(object sender, EventArgs e)
         {
             LblCurrentRunningTime.Text = DateTime.Now.ToLongTimeString();
-            LblLongDate.Text = DateTime.Now.ToLongDateString();
+            LblLongDate.Text = DateTime.Now.DayOfWeek.ToString() + "\n" + DateTime.Now.ToShortDateString();
         }
 
         private void Elite_Dashboard_Load(object sender, EventArgs e)
