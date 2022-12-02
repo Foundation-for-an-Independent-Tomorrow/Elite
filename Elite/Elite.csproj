@@ -68,12 +68,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Admin_Panel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin_Panel.Designer.cs">
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CaseManager.cs" />
+    <Compile Include="ClientIncome.cs" />
+    <Compile Include="ClientInfo.cs" />
+    <Compile Include="ClientPublicAssist.cs" />
     <Compile Include="Client\Client.cs" />
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Elite_Dashboard.cs">

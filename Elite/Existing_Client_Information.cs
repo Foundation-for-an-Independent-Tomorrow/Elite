@@ -15,7 +15,6 @@ namespace Elite
     {
         Client ex_Client;
         List<KeyValuePair<string, object>> clientInfoList;
-        //List<KeyValuePair<string, object>> REIList;
         private Existing_Client_Dashboard ecd = null;
         public Existing_Client_Information(Form main)
         {
