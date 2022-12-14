@@ -69,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\Admin.cs" />
+    <Compile Include="Admin\AdminBuilder.cs">
+      <IsBuilderFile>True</IsBuilderFile>
+    </Compile>
     <Compile Include="Admin\Admin_Panel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +79,7 @@
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
     <Compile Include="CaseManager\CaseManager.cs" />
+    <Compile Include="CaseManager\CaseManagerBuilder.cs" />
     <Compile Include="Income\ClientIncome.cs" />
     <Compile Include="Client\ClientInfo.cs" />
     <Compile Include="Public_Assistance\ClientPublicAssist.cs" />

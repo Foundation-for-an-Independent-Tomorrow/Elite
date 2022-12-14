@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Elite
 {
-    internal class CaseManager
+    public class CaseManager
     {
         public int CMID { get; set; }
         public string FirstName { get; set; }
