@@ -674,7 +674,7 @@ namespace Elite.Data
                 c.Close();
             }
             c.Open();
-            SqlCommand cmd = new SqlCommand("sp_Search_Clients_By_LastName", c)
+            SqlCommand cmd = new SqlCommand("sp_Existing_Client_Search", c)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -712,7 +712,7 @@ namespace Elite.Data
                 c.Close();
             }
             c.Open();
-            SqlCommand cmd = new SqlCommand("sp_Create_New_Client", c)
+            SqlCommand cmd = new SqlCommand("sp_Update_Clients", c)
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -727,6 +727,7 @@ namespace Elite.Data
             try
             {
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
@@ -738,37 +739,39 @@ namespace Elite.Data
             }
         }
 
-        public static void Create_New_Client_No_MI(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, string ssn)
-        {
-            if (c.State.ToString() == "Open")
-            {
-                c.Close();
-            }
-            c.Open();
-            SqlCommand cmd = new SqlCommand("sp_Create_New_Client_No_MI", c)
-            {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
-            cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
-            cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
-            cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
-            cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
-            cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
+        // The following method has been deprecated
+        //
+        //public static void Create_New_Client_No_MI(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, string ssn)
+        //{
+        //    if (c.State.ToString() == "Open")
+        //    {
+        //        c.Close();
+        //    }
+        //    c.Open();
+        //    SqlCommand cmd = new SqlCommand("sp_Create_New_Client_No_MI", c)
+        //    {
+        //        CommandType = CommandType.StoredProcedure
+        //    };
+        //    cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
+        //    cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
+        //    cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
+        //    cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
+        //    cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
+        //    cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
 
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"There was a problem adding the new client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                c.Close();
-            }
-        }
+        //    try
+        //    {
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"There was a problem adding the new client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally
+        //    {
+        //        c.Close();
+        //    }
+        //}
 
         #endregion
 

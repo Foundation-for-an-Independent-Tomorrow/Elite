@@ -46,9 +46,10 @@
             this.Lbl_FamilySupport = new System.Windows.Forms.Label();
             this.Lbl_RentFree_Housing = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.rjTogBut_RentFree = new RJCodeAdvance.RJControls.RJToggleButton();
             this.rjTogBut_CostFree = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // rjTxt_UnemploymentBenefit
@@ -327,23 +328,6 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Cost-free Food:";
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1007, 96);
-            this.richTextBox1.TabIndex = 20;
-            this.richTextBox1.TabStop = false;
-            this.richTextBox1.Text = "Rent-Free Housing is considered to be public housing. (ex. Homeless shelter, HUD/" +
-    "VASH - Veteran Specific, etc.)\n\nCost-Free Food is considered to be food banks. (" +
-    "ex. Three Square)";
-            // 
             // rjTogBut_RentFree
             // 
             this.rjTogBut_RentFree.AutoSize = true;
@@ -372,15 +356,39 @@
             this.rjTogBut_CostFree.TabIndex = 22;
             this.rjTogBut_CostFree.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.GhostWhite;
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(994, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Rent-Free Housing is considered to be public housing. (ex. Homeless shelter, HUD/" +
+    "VASH - Veteran Specific, etc.)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.GhostWhite;
+            this.label3.Location = new System.Drawing.Point(184, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(655, 26);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Cost-Free Food is considered to be food banks. (ex. Three Square)";
+            // 
             // PublicAssistance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1007, 594);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.rjTogBut_CostFree);
             this.Controls.Add(this.rjTogBut_RentFree);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Lbl_RentFree_Housing);
             this.Controls.Add(this.Lbl_FamilySupport);
@@ -428,8 +436,9 @@
         private System.Windows.Forms.Label Lbl_FamilySupport;
         private System.Windows.Forms.Label Lbl_RentFree_Housing;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private RJCodeAdvance.RJControls.RJToggleButton rjTogBut_RentFree;
         private RJCodeAdvance.RJControls.RJToggleButton rjTogBut_CostFree;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

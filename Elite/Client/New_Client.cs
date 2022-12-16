@@ -62,18 +62,18 @@ namespace Elite
             {
                 if (Data.DataHandler.ClientExists(TXT_Client_FName.Text, TXT_Client_LName.Text, TXT_Client_LastFour.Text) == false)
                 {
+                    string MI;
+
                     if (String.IsNullOrEmpty(TXT_Client_MInitial.Text))
                     {
-                        Data.DataHandler.Create_New_Client_No_MI(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
-                            TXT_Client_LastFour.Text);
-                        MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MI = " ";
                     }
                     else
                     {
-                        Data.DataHandler.Create_New_Client(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
-                            Convert.ToChar(TXT_Client_MInitial.Text), TXT_Client_LastFour.Text);
-                        MessageBox.Show("Client Record created successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MI = TXT_Client_MInitial.Text;
                     }
+                    Data.DataHandler.Create_New_Client(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
+                            Convert.ToChar(MI), TXT_Client_LastFour.Text);
                 }
                 else
                 {
