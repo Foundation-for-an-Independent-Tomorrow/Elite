@@ -172,6 +172,7 @@ namespace Elite
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New_Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.New_Client_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Dashboard_MouseUp);

@@ -14,6 +14,7 @@ namespace Elite
     {
         Client ex_Client;
         List<KeyValuePair<string, object>> incomeList;
+        int NewIncomeID;
         private Existing_Client_Dashboard ecd = null;
         public Income(Form main)
         {
@@ -38,6 +39,15 @@ namespace Elite
                 Rj_Hourly_Salary_Toggle.Checked = !incomeList.First(kvp => kvp.Key == "PaidHourly").Value.Equals(false);
 
             }
+            else
+            {
+                NewIncomeID = Data.DataHandler.GetID("IncomeID", "Income") + 1;
+            }
+        }
+
+        private void BTN_Client_Income_update_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,6 +46,7 @@
             this.rjTButton_EmployedthroughFit = new RJCodeAdvance.RJControls.RJToggleButton();
             this.Lbl_Hourly_Salary = new System.Windows.Forms.Label();
             this.Rj_Hourly_Salary_Toggle = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.BTN_Client_Income_update = new RJCodeAdvance.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // Lbl_OtherIncome
@@ -331,12 +332,33 @@
             this.Rj_Hourly_Salary_Toggle.TabIndex = 234;
             this.Rj_Hourly_Salary_Toggle.UseVisualStyleBackColor = true;
             // 
+            // BTN_Client_Income_update
+            // 
+            this.BTN_Client_Income_update.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_Client_Income_update.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_Client_Income_update.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BTN_Client_Income_update.BorderRadius = 0;
+            this.BTN_Client_Income_update.BorderSize = 0;
+            this.BTN_Client_Income_update.FlatAppearance.BorderSize = 0;
+            this.BTN_Client_Income_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Client_Income_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Client_Income_update.ForeColor = System.Drawing.Color.White;
+            this.BTN_Client_Income_update.Location = new System.Drawing.Point(390, 531);
+            this.BTN_Client_Income_update.Name = "BTN_Client_Income_update";
+            this.BTN_Client_Income_update.Size = new System.Drawing.Size(193, 40);
+            this.BTN_Client_Income_update.TabIndex = 236;
+            this.BTN_Client_Income_update.Text = "Update Client Income";
+            this.BTN_Client_Income_update.TextColor = System.Drawing.Color.White;
+            this.BTN_Client_Income_update.UseVisualStyleBackColor = false;
+            this.BTN_Client_Income_update.Click += new System.EventHandler(this.BTN_Client_Income_update_Click);
+            // 
             // Income
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1023, 633);
+            this.Controls.Add(this.BTN_Client_Income_update);
             this.Controls.Add(this.Lbl_Hourly_Salary);
             this.Controls.Add(this.Rj_Hourly_Salary_Toggle);
             this.Controls.Add(this.Lbl_EmployedThroughFit);
@@ -383,5 +405,6 @@
         private RJCodeAdvance.RJControls.RJToggleButton rjTButton_EmployedthroughFit;
         private System.Windows.Forms.Label Lbl_Hourly_Salary;
         private RJCodeAdvance.RJControls.RJToggleButton Rj_Hourly_Salary_Toggle;
+        private RJCodeAdvance.RJControls.RJButton BTN_Client_Income_update;
     }
 }

@@ -68,21 +68,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Admin.cs" />
-    <Compile Include="Admin\AdminBuilder.cs">
-      <IsBuilderFile>True</IsBuilderFile>
-    </Compile>
+    <Compile Include="Admin\Admins.cs" />
     <Compile Include="Admin\Admin_Panel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\Admin_Panel.Designer.cs">
       <DependentUpon>Admin_Panel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CaseManager\CaseManager.cs" />
-    <Compile Include="CaseManager\CaseManagerBuilder.cs" />
-    <Compile Include="Income\ClientIncome.cs" />
+    <Compile Include="Admin\New_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\New_Admin.Designer.cs">
+      <DependentUpon>New_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Update_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Update_Admin.Designer.cs">
+      <DependentUpon>Update_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaseManager\New_CM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaseManager\New_CM.Designer.cs">
+      <DependentUpon>New_CM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CaseManager\CM.cs" />
+    <Compile Include="CaseManager\Update_CM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaseManager\Update_CM.Designer.cs">
+      <DependentUpon>Update_CM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\ClientInfo.cs" />
-    <Compile Include="Public_Assistance\ClientPublicAssist.cs" />
     <Compile Include="Client\Client.cs" />
     <Compile Include="Data\DataHandler.cs" />
     <Compile Include="Dashboards\Elite_Dashboard.cs">
@@ -207,13 +225,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework">
-      <Version>6.2.0</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Data.SqlClient">
-      <Version>5.0.1</Version>
+      <Version>5.1.1</Version>
     </PackageReference>
     <PackageReference Include="morelinq">
-      <Version>3.3.2</Version>
+      <Version>3.4.2</Version>
     </PackageReference>
     <PackageReference Include="RJCodeAdvance.RJControls">
       <Version>1.0.0</Version>

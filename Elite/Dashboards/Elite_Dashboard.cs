@@ -76,19 +76,16 @@ namespace Elite
 
         private void BTN_New_Client_Click(object sender, EventArgs e)
         {
-            New_Client new_Client = new New_Client();
+            New_Client new_Client = new New_Client(this);
             new_Client.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void BTN_Admin_Click(object sender, EventArgs e)
         {
-            this.PnlFormLoader.Controls.Clear();
-            LblHomeScreen.Text = "Administration Panel";
-            Admin_Panel admin_vrb = new Admin_Panel() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            admin_vrb.FormBorderStyle = FormBorderStyle.None;
-            this.PnlFormLoader.Controls.Add(admin_vrb);
-            admin_vrb.Show();
-            BTN_Home.Visible = true;
+            Admin_Panel admin = new Admin_Panel(this);
+            admin.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void BTN_Home_Click(object sender, EventArgs e)
@@ -100,6 +97,7 @@ namespace Elite
             this.PnlFormLoader.Controls.Add(main_vrb);
             main_vrb.Show();
             BTN_Home.Visible = false;
+            BTN_Admin.Visible = true;
         }
 
         private void BTN_Minimize_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;

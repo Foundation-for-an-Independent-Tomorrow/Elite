@@ -231,53 +231,54 @@ namespace Elite.Data
 
         }
 
+        public static DataTable Get_Admin_List()
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd_GetAdmin = new SqlCommand("sp_Get_Admin_List", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter
+            {
+                SelectCommand = cmd_GetAdmin
+            };
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            c.Close();
+            return dt;
+
+        }
+
+        public static DataTable Get_CM_List()
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd_GetAdmin = new SqlCommand("sp_Get_CM_List", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            SqlDataAdapter da = new SqlDataAdapter
+            {
+                SelectCommand = cmd_GetAdmin
+            };
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            c.Close();
+            return dt;
+        }
+
         #region Excluded Methods
-        //Josiah 6/27/2022- The following methods are no longer relevent to this project as the forms that used them have been excluded.
-        //public static List<KeyValuePair<string, object>> Get_JobReady_By_ClientID(int clientID)
-        //{
-        //    var jobReadyList = new List<KeyValuePair<string, object>>();
-        //    if (c.State.ToString() == "Open")
-        //    {
-        //        c.Close();
-        //    }
-        //    c.Open();
-        //    SqlCommand cmd_Income = new SqlCommand("sp_Get_JobReady_By_ClientID", c)
-        //    {
-        //        CommandType = CommandType.StoredProcedure
-        //    };
-        //    cmd_Income.Parameters.Add(new SqlParameter("@sp_ClientID", clientID));
-
-        //    SqlDataReader rdr = cmd_Income.ExecuteReader();
-
-        //    try
-        //    {
-        //        if (rdr.HasRows)
-        //        {
-        //            rdr.Read();
-        //            jobReadyList.Add(new KeyValuePair<string, object>("StartDate", rdr[0]));
-        //            jobReadyList.Add(new KeyValuePair<string, object>("EndDate", rdr[1]));
-        //            jobReadyList.Add(new KeyValuePair<string, object>("ClientID", rdr[2]));
-
-        //        }
-        //        else
-        //        {
-        //            //MessageBox.Show("No Job Ready found with the ClientID: " + clientID, "Please try again");
-        //            return null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        return null;
-        //    }
-        //    finally
-        //    {
-        //        c.Close();
-        //    }
-        //    return jobReadyList;
-
-        //}
-
         ////Josiah 6/27/2022
         //public static List<KeyValuePair<string, object>> Get_NewEmployment_By_ClientID(int clientID)
         //{
@@ -738,40 +739,6 @@ namespace Elite.Data
                 c.Close();
             }
         }
-
-        // The following method has been deprecated
-        //
-        //public static void Create_New_Client_No_MI(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, string ssn)
-        //{
-        //    if (c.State.ToString() == "Open")
-        //    {
-        //        c.Close();
-        //    }
-        //    c.Open();
-        //    SqlCommand cmd = new SqlCommand("sp_Create_New_Client_No_MI", c)
-        //    {
-        //        CommandType = CommandType.StoredProcedure
-        //    };
-        //    cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
-        //    cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
-        //    cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
-        //    cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
-        //    cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
-        //    cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
-
-        //    try
-        //    {
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"There was a problem adding the new client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    finally
-        //    {
-        //        c.Close();
-        //    }
-        //}
 
         #endregion
 

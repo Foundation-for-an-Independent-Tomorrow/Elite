@@ -15,9 +15,11 @@ namespace Elite
         public DateTime appDate;
         public int NewClient_Initial_CMID;
         public int NewClientID;
-        public New_Client()
+        Form _dash;
+        public New_Client(Form dash)
         {
             InitializeComponent();
+            _dash = dash;
             BTN_Cancel.Click += (s, e) => Close();
         }
 
@@ -157,6 +159,11 @@ namespace Elite
             }
 
             return true;
+        }
+
+        private void New_Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _dash.WindowState = FormWindowState.Normal;
         }
     }
 }
