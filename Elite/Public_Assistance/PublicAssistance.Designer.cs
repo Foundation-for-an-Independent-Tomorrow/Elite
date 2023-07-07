@@ -50,6 +50,7 @@
             this.rjTogBut_CostFree = new RJCodeAdvance.RJControls.RJToggleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BTN_Client_Public_Assist_update = new RJCodeAdvance.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // rjTxt_UnemploymentBenefit
@@ -379,12 +380,33 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Cost-Free Food is considered to be food banks. (ex. Three Square)";
             // 
+            // BTN_Client_Public_Assist_update
+            // 
+            this.BTN_Client_Public_Assist_update.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_Client_Public_Assist_update.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_Client_Public_Assist_update.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BTN_Client_Public_Assist_update.BorderRadius = 0;
+            this.BTN_Client_Public_Assist_update.BorderSize = 0;
+            this.BTN_Client_Public_Assist_update.FlatAppearance.BorderSize = 0;
+            this.BTN_Client_Public_Assist_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_Client_Public_Assist_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_Client_Public_Assist_update.ForeColor = System.Drawing.Color.White;
+            this.BTN_Client_Public_Assist_update.Location = new System.Drawing.Point(400, 446);
+            this.BTN_Client_Public_Assist_update.Name = "BTN_Client_Public_Assist_update";
+            this.BTN_Client_Public_Assist_update.Size = new System.Drawing.Size(217, 40);
+            this.BTN_Client_Public_Assist_update.TabIndex = 237;
+            this.BTN_Client_Public_Assist_update.Text = "Update Public Assistance";
+            this.BTN_Client_Public_Assist_update.TextColor = System.Drawing.Color.White;
+            this.BTN_Client_Public_Assist_update.UseVisualStyleBackColor = false;
+            this.BTN_Client_Public_Assist_update.Click += new System.EventHandler(this.BTN_Client_Public_Assist_update_Click);
+            // 
             // PublicAssistance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1007, 594);
+            this.Controls.Add(this.BTN_Client_Public_Assist_update);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rjTogBut_CostFree);
@@ -440,5 +462,6 @@
         private RJCodeAdvance.RJControls.RJToggleButton rjTogBut_CostFree;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private RJCodeAdvance.RJControls.RJButton BTN_Client_Public_Assist_update;
     }
 }

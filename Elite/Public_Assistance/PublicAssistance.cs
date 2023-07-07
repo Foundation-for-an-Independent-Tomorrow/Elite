@@ -16,6 +16,9 @@ namespace Elite
     {
         Client ex_Client;
         List<KeyValuePair<string, object>> publicAssitanceList;
+        int pAID;
+        int rentFree;
+        int costFree;
         private Existing_Client_Dashboard ecd = null;
         public PublicAssistance(Form main)
         {
@@ -29,6 +32,7 @@ namespace Elite
         {
             if (publicAssitanceList != null)
             {
+                pAID = int.Parse(publicAssitanceList.First(kvp => kvp.Key == "PublicAssistID").Value.ToString());
                 rjTxt_UnemploymentBenefit.Texts = publicAssitanceList.First(kvp => kvp.Key == "UnemploymentBenefit").Value.ToString();
                 rjTxt_SSI.Texts = publicAssitanceList.First(kvp => kvp.Key == "SSI").Value.ToString();
                 rjTxt_TANF.Texts = publicAssitanceList.First(kvp => kvp.Key == "TANF").Value.ToString();
@@ -40,11 +44,24 @@ namespace Elite
                 rjTogBut_RentFree.Checked = !publicAssitanceList.First(kvp => kvp.Key == "RentFreeHousing").Value.Equals(false);
                 rjTogBut_CostFree.Checked = !publicAssitanceList.First(kvp => kvp.Key == "CostFreeFood").Value.Equals(false);
             }
+            else
+            {
+                pAID = Data.DataHandler.GetID("PublicAssistID", "PublicAssistance");
+            }
         }
 
         private void PublicAssitance_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTN_Client_Public_Assist_update_Click(object sender, EventArgs e)
+        {
+            ex_Client.PublicAssistUpdated = true;
+            rentFree = rjTogBut_RentFree.Checked == true ? 1 : 0;
+            costFree = rjTogBut_CostFree.Checked == true ? 1 : 0;
+            MessageBox.Show($"The value of costFree is: {costFree}", "TEST!!!!!");
+            Data.DataHandler.Update_PublicAssist(pAID, decimal.Parse(rjTxt_UnemploymentBenefit.Texts), decimal.Parse(rjTxt_SSI.Texts),decimal.Parse(rjTxt_TANF.Texts), decimal.Parse(rjTxt_SANP.Texts), decimal.Parse(rjTxt_WIC.Texts),decimal.Parse(rjTxt_RentalAssist.Texts), decimal.Parse(rjTxt_UtilityAssist.Texts), decimal.Parse(rjTxt_FamilySupport.Texts), ex_Client.ClientID, rentFree, costFree);
         }
     }
 }

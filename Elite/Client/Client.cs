@@ -30,7 +30,19 @@ namespace Elite
         public DateTime AppDate { get => _appDate; set => _appDate = value; }
 
         private int _cmID;
-        public int CMID { get => _cmID;  set => _cmID = value; } 
+        public int CMID { get => _cmID;  set => _cmID = value; }
+
+        private bool _incomeUpdated;
+        public bool IncomeUpdated { get => _incomeUpdated; set => _incomeUpdated = value; }
+
+        private bool _publicAssistUpdated;
+        public bool PublicAssistUpdated { get => _publicAssistUpdated; set => _publicAssistUpdated = value; }
+
+        private bool _goodToUpdate;
+        public bool GoodToUpdate { get => _goodToUpdate; set => _goodToUpdate = value; }
+
+        private bool _pacMAN;
+        public bool PacMan { get => _pacMAN; set => _pacMAN = value; }
 
         public Client(int clientID, string fName, string MI, string lName, string social, DateTime appDate, int cmID)
         {

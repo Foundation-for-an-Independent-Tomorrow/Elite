@@ -29,7 +29,7 @@ namespace Elite
         {
             try
             {                
-                DGV_Admin.DataSource = DataHandler.Get_Admin_List();
+                DGV_Admin.DataSource = DataHandler.Get_Admin_List_DT();
                 DGV_Admin.Update();
                 DGV_Admin.Refresh();
             }
@@ -72,7 +72,7 @@ namespace Elite
         {
             try
             {
-                DGV_CaseManagers.DataSource = DataHandler.Get_CM_List();
+                DGV_CaseManagers.DataSource = DataHandler.Get_CM_List_DT();
                 DGV_CaseManagers.Update();
                 DGV_CaseManagers.Refresh();
             }

@@ -151,7 +151,7 @@ namespace Elite.Data
                     incomeList.Add(new KeyValuePair<string, object>("SSDI", rdr[3]));
                     incomeList.Add(new KeyValuePair<string, object>("Pension", rdr[4]));
                     incomeList.Add(new KeyValuePair<string, object>("ChildSupportIn", rdr[5]));
-                    incomeList.Add(new KeyValuePair<string, object>("Alimoney", rdr[6]));
+                    incomeList.Add(new KeyValuePair<string, object>("AlimonyIn", rdr[6]));
                     incomeList.Add(new KeyValuePair<string, object>("OtherIncome", rdr[7]));
                     incomeList.Add(new KeyValuePair<string, object>("EmployedThroughFit", rdr[8]));
                     incomeList.Add(new KeyValuePair<string, object>("PaidHourly", rdr[9]));
@@ -231,7 +231,7 @@ namespace Elite.Data
 
         }
 
-        public static DataTable Get_Admin_List()
+        public static DataTable Get_Admin_List_DT()
         {
             if (c.State.ToString() == "Open")
             {
@@ -255,7 +255,7 @@ namespace Elite.Data
 
         }
 
-        public static DataTable Get_CM_List()
+        public static DataTable Get_CM_List_DT()
         {
             if (c.State.ToString() == "Open")
             {
@@ -733,6 +733,172 @@ namespace Elite.Data
             catch (Exception ex)
             {
                 MessageBox.Show($"There was a problem adding the new client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
+
+        public static void Create_New_CM()
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+        }
+
+        public static void Create_New_Admin()
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+        }
+
+        #endregion
+
+        #region UPDATE METHODS
+
+        public static void Update_Admin() 
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+        }
+
+        public static void Update_CMs() 
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+        }
+
+        public static void Update_Income(int incomeId, decimal houseHoldIncome, decimal employmentIncome, decimal ssdi, decimal pension, decimal childSupportIn, decimal alimonyIn, decimal otherIncome, int employedTrhoughFIT, int paidHourly, int ClientId) 
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+            SqlCommand cmd = new("sp_Update_Income", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("sp_INCOMEID", incomeId));
+            cmd.Parameters.Add(new SqlParameter("sp_HOUSEHOLDINCOME", houseHoldIncome));
+            cmd.Parameters.Add(new SqlParameter("sp_EMPLOYMENTINCOME", employmentIncome));
+            cmd.Parameters.Add(new SqlParameter("sp_SSDI", ssdi));
+            cmd.Parameters.Add(new SqlParameter("sp_PENSION", pension));
+            cmd.Parameters.Add(new SqlParameter("sp_CHILDSUPPORTIN", childSupportIn));
+            cmd.Parameters.Add(new SqlParameter("sp_ALIMONYIN", alimonyIn));
+            cmd.Parameters.Add(new SqlParameter("sp_OTHERINCOME", otherIncome));
+            cmd.Parameters.Add(new SqlParameter("sp_EMPLOYEDTHROUGHFIT", employedTrhoughFIT));
+            cmd.Parameters.Add(new SqlParameter("sp_PAIDHOURLY", paidHourly));
+            cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", ClientId));
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Client income updated successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"There was a problem updating the income for this client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally 
+            { 
+                c.Close(); 
+            }
+        }
+
+        public static void Update_PublicAssist(int paID, decimal unEmployBenefit, decimal ssi, decimal tanf, decimal snap, decimal wic, decimal  rentalAssist, decimal utilityAssist, decimal familySupport, int clientID, int rentFreeHousing, int costFreeFood) 
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+
+            SqlCommand cmd = new("sp_Update_Public_Assist", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("sp_PublicAssistID", paID));
+            cmd.Parameters.Add(new SqlParameter("sp_UnemploymentBenefit", unEmployBenefit));
+            cmd.Parameters.Add(new SqlParameter("sp_SSI", ssi));
+            cmd.Parameters.Add(new SqlParameter("sp_TANF", tanf));
+            cmd.Parameters.Add(new SqlParameter("sp_SNAP", snap));
+            cmd.Parameters.Add(new SqlParameter("sp_WIC", wic));
+            cmd.Parameters.Add(new SqlParameter("sp_RentalAssist", rentalAssist));
+            cmd.Parameters.Add(new SqlParameter("sp_UtilityAssist", utilityAssist));
+            cmd.Parameters.Add(new SqlParameter("sp_FamilySupport", familySupport));
+            cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", clientID));
+            cmd.Parameters.Add(new SqlParameter("sp_RentFreeHousing", rentFreeHousing));
+            cmd.Parameters.Add(new SqlParameter("sp_CostFreeFood", costFreeFood));
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Client public assistance updated successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There was a problem updating the public assistance for this client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                c.Close();
+            }
+        }
+
+        public static void Update_Client_Info(int clientId, int cmId, string fName, string lName, char mI, string ssn, int clientInfoId, string email, DateTime dob, int age, string phone, int publicAssist, int conviction) 
+        {
+            if (c.State.ToString() == "Open")
+            {
+                c.Close();
+            }
+            c.Open();
+
+            SqlCommand cmd = new("sp_Update_Clients_NO_APP_DT", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", clientId));
+            cmd.Parameters.Add(new SqlParameter("sp_CMID", cmId));
+            cmd.Parameters.Add(new SqlParameter("sp_FIRSTNAME", fName));
+            cmd.Parameters.Add(new SqlParameter("sp_LASTNAME", lName));
+            cmd.Parameters.Add(new SqlParameter("sp_MIDDLEINITIAL", mI));
+            cmd.Parameters.Add(new SqlParameter("sp_SOCIAL", ssn));
+
+            SqlCommand cmd1 = new("sp_Update_ClientInfo", c)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd1.Parameters.Add(new SqlParameter("sp_CLIENTINFOID", clientInfoId));
+            cmd1.Parameters.Add(new SqlParameter("sp_EMAIL", email));
+            cmd1.Parameters.Add(new SqlParameter("sp_DOB", dob));
+            cmd1.Parameters.Add(new SqlParameter("sp_AGE", age));
+            cmd1.Parameters.Add(new SqlParameter("sp_PRIMARYPHONE", phone));
+            cmd1.Parameters.Add(new SqlParameter("sp_PUBLICASSIST", publicAssist));
+            cmd1.Parameters.Add(new SqlParameter("sp_CLIENTID", clientId));
+            cmd1.Parameters.Add(new SqlParameter("sp_CONVICTION", conviction));
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
+                MessageBox.Show("Client info updated successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"There was a problem updating the info for this client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

@@ -57,12 +57,14 @@ namespace Elite
             this.Lbl_CM_Assigned = new System.Windows.Forms.Label();
             this.Lbl_DOB_Warning = new System.Windows.Forms.Label();
             this.Lbl_DOB_Tooltip = new System.Windows.Forms.Label();
+            this.BTN_ClientInfo_Update = new RJCodeAdvance.RJControls.RJButton();
             this.SuspendLayout();
             // 
             // rjDPicker
             // 
             this.rjDPicker.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjDPicker.BorderSize = 0;
+            this.rjDPicker.Enabled = false;
             this.rjDPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.rjDPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.rjDPicker.Location = new System.Drawing.Point(213, 308);
@@ -293,6 +295,7 @@ namespace Elite
             this.rjDPicker_DOB.SkinColor = System.Drawing.Color.MediumSlateBlue;
             this.rjDPicker_DOB.TabIndex = 109;
             this.rjDPicker_DOB.TextColor = System.Drawing.Color.White;
+            this.rjDPicker_DOB.Value = new System.DateTime(2005, 7, 1, 0, 0, 0, 0);
             // 
             // rjTxt_Email
             // 
@@ -445,9 +448,29 @@ namespace Elite
             this.Lbl_DOB_Tooltip.AutoSize = true;
             this.Lbl_DOB_Tooltip.Location = new System.Drawing.Point(538, 192);
             this.Lbl_DOB_Tooltip.Name = "Lbl_DOB_Tooltip";
-            this.Lbl_DOB_Tooltip.Size = new System.Drawing.Size(356, 17);
+            this.Lbl_DOB_Tooltip.Size = new System.Drawing.Size(329, 17);
             this.Lbl_DOB_Tooltip.TabIndex = 157;
-            this.Lbl_DOB_Tooltip.Text = "***If no DOB was entered, it defaults to 18 years ago.***";
+            this.Lbl_DOB_Tooltip.Text = "***If no DOB was entered, it defaults to 7/1/2005.***";
+            // 
+            // BTN_ClientInfo_Update
+            // 
+            this.BTN_ClientInfo_Update.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_ClientInfo_Update.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BTN_ClientInfo_Update.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BTN_ClientInfo_Update.BorderRadius = 0;
+            this.BTN_ClientInfo_Update.BorderSize = 0;
+            this.BTN_ClientInfo_Update.FlatAppearance.BorderSize = 0;
+            this.BTN_ClientInfo_Update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTN_ClientInfo_Update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTN_ClientInfo_Update.ForeColor = System.Drawing.Color.White;
+            this.BTN_ClientInfo_Update.Location = new System.Drawing.Point(440, 503);
+            this.BTN_ClientInfo_Update.Name = "BTN_ClientInfo_Update";
+            this.BTN_ClientInfo_Update.Size = new System.Drawing.Size(150, 40);
+            this.BTN_ClientInfo_Update.TabIndex = 158;
+            this.BTN_ClientInfo_Update.Text = "Update Client Info";
+            this.BTN_ClientInfo_Update.TextColor = System.Drawing.Color.White;
+            this.BTN_ClientInfo_Update.UseVisualStyleBackColor = false;
+            this.BTN_ClientInfo_Update.Click += new System.EventHandler(this.BTN_ClientInfo_Update_Click);
             // 
             // Existing_Client_Information
             // 
@@ -456,6 +479,7 @@ namespace Elite
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.ClientSize = new System.Drawing.Size(1023, 633);
+            this.Controls.Add(this.BTN_ClientInfo_Update);
             this.Controls.Add(this.Lbl_DOB_Tooltip);
             this.Controls.Add(this.Lbl_DOB_Warning);
             this.Controls.Add(this.Lbl_CM_Assigned);
@@ -531,5 +555,6 @@ namespace Elite
         private System.Windows.Forms.Label Lbl_CM_Assigned;
         private System.Windows.Forms.Label Lbl_DOB_Warning;
         private System.Windows.Forms.Label Lbl_DOB_Tooltip;
+        private RJCodeAdvance.RJControls.RJButton BTN_ClientInfo_Update;
     }
 }

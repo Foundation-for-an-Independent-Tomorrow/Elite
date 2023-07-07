@@ -331,6 +331,7 @@
             this.Rj_Hourly_Salary_Toggle.Size = new System.Drawing.Size(60, 27);
             this.Rj_Hourly_Salary_Toggle.TabIndex = 234;
             this.Rj_Hourly_Salary_Toggle.UseVisualStyleBackColor = true;
+            this.Rj_Hourly_Salary_Toggle.CheckedChanged += new System.EventHandler(this.Rj_Hourly_Salary_Toggle_CheckedChanged);
             // 
             // BTN_Client_Income_update
             // 
@@ -343,7 +344,7 @@
             this.BTN_Client_Income_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTN_Client_Income_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BTN_Client_Income_update.ForeColor = System.Drawing.Color.White;
-            this.BTN_Client_Income_update.Location = new System.Drawing.Point(390, 531);
+            this.BTN_Client_Income_update.Location = new System.Drawing.Point(413, 539);
             this.BTN_Client_Income_update.Name = "BTN_Client_Income_update";
             this.BTN_Client_Income_update.Size = new System.Drawing.Size(193, 40);
             this.BTN_Client_Income_update.TabIndex = 236;
