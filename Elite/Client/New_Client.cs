@@ -55,7 +55,7 @@ namespace Elite
         private void BTN_Create_Client_Click(object sender, EventArgs e)
         {
             appDate = DateTime.Today;
-            NewClient_Initial_CMID = 33;
+            NewClient_Initial_CMID = 1;
             NewClientID = Data.DataHandler.GetID("ClientID", "Clients") + 1;
 
             bool ISValid = Input_Validation();
@@ -64,18 +64,18 @@ namespace Elite
             {
                 if (Data.DataHandler.ClientExists(TXT_Client_FName.Text, TXT_Client_LName.Text, TXT_Client_LastFour.Text) == false)
                 {
-                    string MI;
+                    char? MI;
 
                     if (String.IsNullOrEmpty(TXT_Client_MInitial.Text))
                     {
-                        MI = " ";
+                        MI = null;
                     }
                     else
                     {
-                        MI = TXT_Client_MInitial.Text;
+                        MI = Convert.ToChar(TXT_Client_MInitial.Text);
                     }
                     Data.DataHandler.Create_New_Client(NewClientID, appDate, NewClient_Initial_CMID, TXT_Client_FName.Text, TXT_Client_LName.Text,
-                            Convert.ToChar(MI), TXT_Client_LastFour.Text);
+                            MI, TXT_Client_LastFour.Text);
                 }
                 else
                 {

@@ -95,6 +95,7 @@ namespace Elite
             this.rjTxt_fName.PlaceholderText = "";
             this.rjTxt_fName.Size = new System.Drawing.Size(250, 35);
             this.rjTxt_fName.TabIndex = 4;
+            this.rjTxt_fName.TabStop = false;
             this.rjTxt_fName.Texts = "";
             this.rjTxt_fName.UnderlinedStyle = false;
             // 
@@ -117,6 +118,7 @@ namespace Elite
             this.rjTxt_mInitial.PlaceholderText = "";
             this.rjTxt_mInitial.Size = new System.Drawing.Size(250, 35);
             this.rjTxt_mInitial.TabIndex = 5;
+            this.rjTxt_mInitial.TabStop = false;
             this.rjTxt_mInitial.Texts = "";
             this.rjTxt_mInitial.UnderlinedStyle = false;
             // 
@@ -139,6 +141,7 @@ namespace Elite
             this.rjTxt_lName.PlaceholderText = "";
             this.rjTxt_lName.Size = new System.Drawing.Size(250, 35);
             this.rjTxt_lName.TabIndex = 6;
+            this.rjTxt_lName.TabStop = false;
             this.rjTxt_lName.Texts = "";
             this.rjTxt_lName.UnderlinedStyle = false;
             // 
@@ -161,6 +164,7 @@ namespace Elite
             this.rjTxt_Last_Four.PlaceholderText = "";
             this.rjTxt_Last_Four.Size = new System.Drawing.Size(250, 35);
             this.rjTxt_Last_Four.TabIndex = 7;
+            this.rjTxt_Last_Four.TabStop = false;
             this.rjTxt_Last_Four.Texts = "";
             this.rjTxt_Last_Four.UnderlinedStyle = false;
             // 

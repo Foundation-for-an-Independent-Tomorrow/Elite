@@ -236,18 +236,18 @@ namespace Elite
 
             if (ISValid)
             {
-                string MI;
+                char? MI;
 
                 if (String.IsNullOrEmpty(rjTxt_mInitial.Texts))
                 {
-                    MI = " ";
+                    MI = null;
                 }
                 else
                 {
-                    MI = rjTxt_mInitial.Texts;
+                    MI = Convert.ToChar(rjTxt_mInitial.Texts);
                 }
 
-                DataHandler.Update_Client_Info((int)ex_Client.ClientID, (int)CBox_CMs.SelectedValue, rjTxt_fName.Texts, rjTxt_lName.Texts, Convert.ToChar(MI), rjTxt_Last_Four.Texts, ClientInfoID, rjTxt_Email.Texts,rjDPicker_DOB.Value, age, rjTxt_PrimaryPhone.Texts,pAssist, _convict);
+                DataHandler.Update_Client_Info((int)ex_Client.ClientID, (int)CBox_CMs.SelectedValue, rjTxt_fName.Texts, rjTxt_lName.Texts, MI, rjTxt_Last_Four.Texts, ClientInfoID, rjTxt_Email.Texts,rjDPicker_DOB.Value, age, rjTxt_PrimaryPhone.Texts,pAssist, _convict);
             }
         }
 

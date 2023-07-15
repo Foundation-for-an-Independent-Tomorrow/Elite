@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Elite
         private decimal HHIncomeAmount;
         private int empThroughFIT;
         private int hourly;
-        private decimal hWage;
-        private decimal salary;
         private decimal hourlyToMonthlyIncome;
+        private decimal _income;
+        private decimal _ssdi;
+        private decimal _pension;
+        private decimal _childIn;
+        private decimal _alimonyIn;
+        private decimal _otherIn;
         private Existing_Client_Dashboard ecd = null;
         public Income(Form main)
         {
@@ -39,17 +44,24 @@ namespace Elite
             if (incomeList != null)
             {
                 IncomeId = int.Parse(incomeList.First(kvp => kvp.Key == "IncomeID").Value.ToString());
-                rjTxt_HouseholdIncome.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "HouseholdIncome").Value.ToString()).ToString("n2");
-                rjTxt_EmploymentIncome.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "EmploymentIncome").Value.ToString()).ToString("n2");
-                hWage = GetHourlyWage(decimal.Parse(rjTxt_EmploymentIncome.Texts));
-                salary = hWage * 100;
-                rjTxt_SSDI.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "SSDI").Value.ToString()).ToString("n2");
-                rjTxt_Pension.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "Pension").Value.ToString()).ToString("n2");
-                rjTxt_ChildSupportIn.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "ChildSupportIn").Value.ToString()).ToString("n2");
-                rjTxt_Alimoney.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "AlimonyIn").Value.ToString()).ToString("n2");
-                rjTxt_OtherIncome.Texts = decimal.Parse(incomeList.First(kvp => kvp.Key == "OtherIncome").Value.ToString()).ToString("n2");
-                rjTButton_EmployedthroughFit.Checked = !incomeList.First(kvp => kvp.Key == "EmployedThroughFit").Value.Equals(false);
-                Rj_Hourly_Salary_Toggle.Checked = !incomeList.First(kvp => kvp.Key == "PaidHourly").Value.Equals(false);      
+                Rj_Hourly_Salary_Toggle.Checked = !incomeList.First(kvp => kvp.Key == "PaidHourly").Value.Equals(false);
+                rjTxt_HouseholdIncome.Texts = incomeList.First(kvp => kvp.Key == "HouseholdIncome").Value.ToString();
+                if (Rj_Hourly_Salary_Toggle.Checked)
+                {
+                    hourly = 1;
+                    TXT_Hourly_Wage.Texts = incomeList.First(kvp => kvp.Key == "EmploymentIncome").Value.ToString();
+                }
+                else
+                {
+                    hourly = 0;
+                    rjTxt_EmploymentIncome.Texts = incomeList.First(kvp => kvp.Key == "EmploymentIncome").Value.ToString();
+                }
+                rjTxt_SSDI.Texts = incomeList.First(kvp => kvp.Key == "SSDI").Value.ToString();
+                rjTxt_Pension.Texts = incomeList.First(kvp => kvp.Key == "Pension").Value.ToString();
+                rjTxt_ChildSupportIn.Texts = incomeList.First(kvp => kvp.Key == "ChildSupportIn").Value.ToString();
+                rjTxt_Alimoney.Texts = incomeList.First(kvp => kvp.Key == "AlimonyIn").Value.ToString();
+                rjTxt_OtherIncome.Texts = incomeList.First(kvp => kvp.Key == "OtherIncome").Value.ToString();
+                rjTButton_EmployedthroughFit.Checked = !incomeList.First(kvp => kvp.Key == "EmployedThroughFit").Value.Equals(false);      
             }
             else
             {
@@ -57,45 +69,13 @@ namespace Elite
             }
         }
 
-        private void Income_Refresh()
-        {
-            //Lambda function used to more easily clear fields
-            Action<Control.ControlCollection> ClearFields = null;
-
-            ClearFields = (controls) =>
-            {
-                foreach (Control option in controls)
-                    if (option is TextBox)
-                        (option as TextBox).Clear();
-                    else if (option is CheckBox)
-                        (option as CheckBox).Checked = false;
-                    else
-                        ClearFields(option.Controls);
-            };
-
-            ClearFields(Controls);
-
-            Fill_Income();
-        }
-
-        private decimal GetHourlyWage(decimal wage)
-        {
-            decimal hourlyWage = 0;
-            if (wage.ToString().Length > 4) 
-            {
-                hourlyWage = wage / 100;
-            }
-            return hourlyWage;
-        }
-
         private void BTN_Client_Income_update_Click(object sender, EventArgs e)
         {
-
+            ConvertToDec();
             empThroughFIT = rjTButton_EmployedthroughFit.Checked == true ? 1 : 0;
-            DataHandler.Update_Income(IncomeId, HHIncomeAmount, decimal.Parse(rjTxt_EmploymentIncome.Texts), decimal.Parse(rjTxt_SSDI.Texts), decimal.Parse(rjTxt_Pension.Texts), decimal.Parse(rjTxt_ChildSupportIn.Texts), decimal.Parse(rjTxt_Alimoney.Texts), decimal.Parse(rjTxt_OtherIncome.Texts), empThroughFIT, hourly, ex_Client.ClientID);
+            DataHandler.Update_Income(IncomeId, decimal.Parse(rjTxt_HouseholdIncome.Texts), _income, _ssdi, _pension, _childIn, _alimonyIn, _otherIn, empThroughFIT, hourly, ex_Client.ClientID);
             
             ex_Client.IncomeUpdated = true;
-            Income_Refresh();
         }
 
         private void Rj_Hourly_Salary_Toggle_CheckedChanged(object sender, EventArgs e)
@@ -103,18 +83,121 @@ namespace Elite
             if(Rj_Hourly_Salary_Toggle.Checked)
             {
                 hourly = 1;
-                rjTxt_EmploymentIncome.Texts = hWage.ToString("n2");
-                hourlyToMonthlyIncome = ((hWage * 40) * 52) / 12;
-                HHIncomeAmount = (hourlyToMonthlyIncome + decimal.Parse(rjTxt_SSDI.Texts) + decimal.Parse(rjTxt_Pension.Texts) + decimal.Parse(rjTxt_ChildSupportIn.Texts) + decimal.Parse(rjTxt_Alimoney.Texts) + decimal.Parse(rjTxt_OtherIncome.Texts));
-                rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString("n2");
+                Lbl_Hourly_Wage.Visible = true;
+                TXT_Hourly_Wage.Visible = true;
+                RBWeekly.Visible = true;
+                RBWeekly.Checked = true;
+                RB_Monthly.Visible = false;
+                Lbl_EmploymentIncome.Visible = false;
+                rjTxt_EmploymentIncome.Visible=false;
+                rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString();
             }
             else
             {
                 hourly = 0;
-                rjTxt_EmploymentIncome.Texts = salary.ToString("n2");
-                HHIncomeAmount = (decimal.Parse(rjTxt_EmploymentIncome.Texts) + decimal.Parse(rjTxt_SSDI.Texts) + decimal.Parse(rjTxt_Pension.Texts) + decimal.Parse(rjTxt_ChildSupportIn.Texts) + decimal.Parse(rjTxt_Alimoney.Texts) + decimal.Parse(rjTxt_OtherIncome.Texts));
-                rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString("n2");
+                Lbl_Hourly_Wage.Visible = false;
+                TXT_Hourly_Wage.Visible = false;
+                RBWeekly.Visible = false;
+                RB_Monthly.Visible = true;
+                Lbl_EmploymentIncome.Visible = true;
+                rjTxt_EmploymentIncome.Visible = true;
+                RB_Monthly.Checked = true;
+                rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString();
             }
+        }
+
+        private void ConvertToDec()
+        {
+            switch (hourly)
+            {
+                case 0:
+                    if (string.IsNullOrEmpty(rjTxt_EmploymentIncome.Texts))
+                    {
+                        _income = 0m;
+                    }
+                    else
+                    {
+                        _income = decimal.Floor(decimal.Parse(rjTxt_EmploymentIncome.Texts));
+                    }
+                    break;
+                case 1:
+                    if (string.IsNullOrEmpty(TXT_Hourly_Wage.Texts))
+                    {
+                        _income = 0m;
+                    }
+                    else
+                    {
+                        _income = decimal.Floor(decimal.Parse(TXT_Hourly_Wage.Texts));
+                    }
+                    break;
+            }
+            if (string.IsNullOrEmpty(rjTxt_SSDI.Texts))
+            {
+                _ssdi = 0m;
+            }
+            else
+            {
+                _ssdi = decimal.Floor(decimal.Parse(rjTxt_SSDI.Texts));
+            }
+
+            if (string.IsNullOrEmpty(rjTxt_Pension.Texts))
+            {
+                _pension = 0m;
+            }
+            else
+            {
+                _pension = decimal.Floor(decimal.Parse(rjTxt_Pension.Texts));
+            }
+
+            if (string.IsNullOrEmpty(rjTxt_ChildSupportIn.Texts))
+            {
+                _childIn = 0m;
+            }
+            else
+            {
+                _childIn = decimal.Floor(decimal.Parse(rjTxt_ChildSupportIn.Texts));
+            }
+
+            if (string.IsNullOrEmpty(rjTxt_Alimoney.Texts))
+            {
+                _alimonyIn = 0m;
+            }
+            else
+            {
+                _alimonyIn = decimal.Floor(decimal.Parse(rjTxt_Alimoney.Texts));
+            }
+
+            if (string.IsNullOrEmpty(rjTxt_OtherIncome.Texts))
+            {
+                _otherIn = 0m;
+            }
+            else
+            {
+                _otherIn = decimal.Floor(decimal.Parse(rjTxt_OtherIncome.Texts));
+            }
+        }
+
+        private void Income_TextChanged(object sender, EventArgs e)
+        {
+            ConvertToDec();
+            if (RBWeekly.Checked)
+            {
+                hourlyToMonthlyIncome = ((_income * 40) * 52) / 12;
+            }
+            else if (RB_Bi_Weekly.Checked && Rj_Hourly_Salary_Toggle.Checked)
+            {
+                hourlyToMonthlyIncome = ((_income * 80) * 26) / 12;
+            }
+            else if(RB_Bi_Weekly.Checked && !Rj_Hourly_Salary_Toggle.Checked)
+            {
+                hourlyToMonthlyIncome = (_income * 26) / 12;
+            }
+            else
+            {
+                hourlyToMonthlyIncome = _income;
+            }
+            HHIncomeAmount = hourlyToMonthlyIncome + _ssdi + _pension + _childIn + _alimonyIn + _otherIn;
+            rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString();
         }
     }
 }

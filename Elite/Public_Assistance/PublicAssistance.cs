@@ -60,7 +60,6 @@ namespace Elite
             ex_Client.PublicAssistUpdated = true;
             rentFree = rjTogBut_RentFree.Checked == true ? 1 : 0;
             costFree = rjTogBut_CostFree.Checked == true ? 1 : 0;
-            MessageBox.Show($"The value of costFree is: {costFree}", "TEST!!!!!");
             Data.DataHandler.Update_PublicAssist(pAID, decimal.Parse(rjTxt_UnemploymentBenefit.Texts), decimal.Parse(rjTxt_SSI.Texts),decimal.Parse(rjTxt_TANF.Texts), decimal.Parse(rjTxt_SANP.Texts), decimal.Parse(rjTxt_WIC.Texts),decimal.Parse(rjTxt_RentalAssist.Texts), decimal.Parse(rjTxt_UtilityAssist.Texts), decimal.Parse(rjTxt_FamilySupport.Texts), ex_Client.ClientID, rentFree, costFree);
         }
     }

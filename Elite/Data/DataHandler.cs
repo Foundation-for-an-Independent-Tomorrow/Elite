@@ -706,24 +706,41 @@ namespace Elite.Data
 
         #region Create Methods
 
-        public static void Create_New_Client(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, char middle_initial, string ssn)
+        public static void Create_New_Client(int clientId, DateTime createdDate, int cmId, string firstName, string lastName, char? middle_initial, string ssn)
         {
+            SqlCommand cmd;
             if (c.State.ToString() == "Open")
             {
                 c.Close();
             }
             c.Open();
-            SqlCommand cmd = new SqlCommand("sp_Update_Clients", c)
+            if (middle_initial == null)
             {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
-            cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
-            cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
-            cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
-            cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
-            cmd.Parameters.Add(new SqlParameter("@sp_MIDDLEINITIAL", middle_initial));
-            cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
+                cmd = new SqlCommand("sp_Create_New_Client_NO_MI", c)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
+                cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
+                cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
+                cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
+                cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
+                cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
+            }
+            else
+            {
+                cmd = new SqlCommand("sp_Update_Clients", c)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("@sp_CLIENTID", clientId));
+                cmd.Parameters.Add(new SqlParameter("@sp_CREATEDDATE", createdDate));
+                cmd.Parameters.Add(new SqlParameter("@sp_CMID", cmId));
+                cmd.Parameters.Add(new SqlParameter("@sp_FIRSTNAME", firstName));
+                cmd.Parameters.Add(new SqlParameter("@sp_LASTNAME", lastName));
+                cmd.Parameters.Add(new SqlParameter("sp_MIDDLEINITIAL", middle_initial));
+                cmd.Parameters.Add(new SqlParameter("@sp_SOCIAL", ssn));
+            }
 
             try
             {
@@ -858,24 +875,39 @@ namespace Elite.Data
             }
         }
 
-        public static void Update_Client_Info(int clientId, int cmId, string fName, string lName, char mI, string ssn, int clientInfoId, string email, DateTime dob, int age, string phone, int publicAssist, int conviction) 
+        public static void Update_Client_Info(int clientId, int cmId, string fName, string lName, char? mI, string ssn, int clientInfoId, string email, DateTime dob, int age, string phone, int publicAssist, int conviction) 
         {
+            SqlCommand cmd;
             if (c.State.ToString() == "Open")
             {
                 c.Close();
             }
             c.Open();
-
-            SqlCommand cmd = new("sp_Update_Clients_NO_APP_DT", c)
+            if (mI == null)
             {
-                CommandType = CommandType.StoredProcedure
-            };
-            cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", clientId));
-            cmd.Parameters.Add(new SqlParameter("sp_CMID", cmId));
-            cmd.Parameters.Add(new SqlParameter("sp_FIRSTNAME", fName));
-            cmd.Parameters.Add(new SqlParameter("sp_LASTNAME", lName));
-            cmd.Parameters.Add(new SqlParameter("sp_MIDDLEINITIAL", mI));
-            cmd.Parameters.Add(new SqlParameter("sp_SOCIAL", ssn));
+                cmd = new SqlCommand("sp_Update_Clients_NO_APP_DT_NO_MI", c)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", clientId));
+                cmd.Parameters.Add(new SqlParameter("sp_CMID", cmId));
+                cmd.Parameters.Add(new SqlParameter("sp_FIRSTNAME", fName));
+                cmd.Parameters.Add(new SqlParameter("sp_LASTNAME", lName));
+                cmd.Parameters.Add(new SqlParameter("sp_SOCIAL", ssn));
+            }
+            else
+            {
+                cmd = new("sp_Update_Clients_NO_APP_DT", c)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.Add(new SqlParameter("sp_CLIENTID", clientId));
+                cmd.Parameters.Add(new SqlParameter("sp_CMID", cmId));
+                cmd.Parameters.Add(new SqlParameter("sp_FIRSTNAME", fName));
+                cmd.Parameters.Add(new SqlParameter("sp_LASTNAME", lName));
+                cmd.Parameters.Add(new SqlParameter("sp_MIDDLEINITIAL", mI));
+                cmd.Parameters.Add(new SqlParameter("sp_SOCIAL", ssn));
+            }
 
             SqlCommand cmd1 = new("sp_Update_ClientInfo", c)
             {
