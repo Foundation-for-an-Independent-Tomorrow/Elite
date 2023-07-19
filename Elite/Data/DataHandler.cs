@@ -121,7 +121,7 @@ namespace Elite.Data
                 c.Close();
             }
             return clientInfoList;
-        }        
+        }
 
         //Josiah 6/23/2022
         public static List<KeyValuePair<string, object>> Get_Income_By_ClientID(int clientID)
@@ -175,7 +175,7 @@ namespace Elite.Data
             }
             return incomeList;
 
-        }        
+        }
 
         //Josiah 6/27/2022
         public static List<KeyValuePair<string, object>> Get_PublicAssitance_By_ClientID(int clientID)
@@ -779,7 +779,7 @@ namespace Elite.Data
 
         #region UPDATE METHODS
 
-        public static void Update_Admin() 
+        public static void Update_Admin()
         {
             if (c.State.ToString() == "Open")
             {
@@ -788,7 +788,7 @@ namespace Elite.Data
             c.Open();
         }
 
-        public static void Update_CMs() 
+        public static void Update_CMs()
         {
             if (c.State.ToString() == "Open")
             {
@@ -797,7 +797,7 @@ namespace Elite.Data
             c.Open();
         }
 
-        public static void Update_Income(int incomeId, decimal houseHoldIncome, decimal employmentIncome, decimal ssdi, decimal pension, decimal childSupportIn, decimal alimonyIn, decimal otherIncome, int employedTrhoughFIT, int paidHourly, int ClientId) 
+        public static void Update_Income(int incomeId, decimal houseHoldIncome, decimal employmentIncome, decimal ssdi, decimal pension, decimal childSupportIn, decimal alimonyIn, decimal otherIncome, int employedTrhoughFIT, int paidHourly, int ClientId)
         {
             if (c.State.ToString() == "Open")
             {
@@ -825,17 +825,17 @@ namespace Elite.Data
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Client income updated successfully.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show($"There was a problem updating the income for this client. Please screenshot this error message and send it to the IT Department:\n\n{ex.Message}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally 
-            { 
-                c.Close(); 
+            finally
+            {
+                c.Close();
             }
         }
 
-        public static void Update_PublicAssist(int paID, decimal unEmployBenefit, decimal ssi, decimal tanf, decimal snap, decimal wic, decimal  rentalAssist, decimal utilityAssist, decimal familySupport, int clientID, int rentFreeHousing, int costFreeFood) 
+        public static void Update_PublicAssist(int paID, decimal unEmployBenefit, decimal ssi, decimal tanf, decimal snap, decimal wic, decimal rentalAssist, decimal utilityAssist, decimal familySupport, int clientID, int rentFreeHousing, int costFreeFood)
         {
             if (c.State.ToString() == "Open")
             {
@@ -875,7 +875,7 @@ namespace Elite.Data
             }
         }
 
-        public static void Update_Client_Info(int clientId, int cmId, string fName, string lName, char? mI, string ssn, int clientInfoId, string email, DateTime dob, int age, string phone, int publicAssist, int conviction) 
+        public static void Update_Client_Info(int clientId, int cmId, string fName, string lName, char? mI, string ssn, int clientInfoId, string email, DateTime dob, int age, string phone, int publicAssist, int conviction)
         {
             SqlCommand cmd;
             if (c.State.ToString() == "Open")
