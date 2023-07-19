@@ -197,7 +197,7 @@ namespace Elite
                 hourlyToMonthlyIncome = _income;
             }
             HHIncomeAmount = hourlyToMonthlyIncome + _ssdi + _pension + _childIn + _alimonyIn + _otherIn;
-            rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString();
+            rjTxt_HouseholdIncome.Texts = HHIncomeAmount.ToString("n2");
         }
     }
 }
